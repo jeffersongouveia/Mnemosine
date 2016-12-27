@@ -72,24 +72,28 @@
 
             <div class="form-group">
               <div class="col-md-3 fixed-at-bottom">
-                <div class="dropup">
-                  <button id="menu-add" type="button" class="btn-transparent dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <img src="img/add.png" alt="Menu de adição">
-                  </button>
+                <div class="col-md-3 align-menu-itens">
+                  <div class="align-left">
+                    <div class="dropup">
+                      <button id="menu-add" type="button" class="btn-transparent dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img src="img/add.png" alt="Menu de adição">
+                      </button>
 
-                  <ul class="dropdown-menu" aria-labelledby="menu-add">
-                    <li><a href="#">Login</a></li>
-                    <li><a href="#">Nota segura</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a href="#">Usuário</a></li>
-                    <li><a href="#">Grupo</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a href="#">Configurações</a></li>
-                  </ul>
-                </div>
+                      <ul class="dropdown-menu" aria-labelledby="menu-add">
+                        <li><a href="#">Login</a></li>
+                        <li><a href="#">Nota segura</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">Usuário</a></li>
+                        <li><a href="#">Grupo</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">Configurações</a></li>
+                      </ul>
+                    </div>
+                  </div>
 
-                <div>
-                  <a id="trash" href="#"><img src="img/garbage.png" alt="Acesso à Lixeira"></a>
+                  <div class="align-right">
+                    <a id="trash" href="#"><img src="img/garbage.png" alt="Acesso à Lixeira"></a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -99,6 +103,35 @@
       </div>
 
       <div class="col-md-3 show-grid">
+        <form class="form-horizontal" method="post">
+          <div class="form-group">
+            <div class="input-group">
+              <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
+              <input type="text" class="form-control" name="search" placeholder="Pesquisar">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div id="text-sort">
+              <span id="sort-count">3</span>
+              <span>itens ordenados por</span>
+              <div id="sort-type" class="dropdown">
+                <button id="sort" type="button" class="btn-transparent dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                  Título
+                  <span class="caret"></span>
+                </button>
+
+                <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="sort">
+                  <li><a href="#">Action</a></li>
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li><a href="#">Separated link</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </form>
       </div>
 
       <div class="col-md-6 show-grid">

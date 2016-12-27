@@ -3,19 +3,15 @@
   font-family: 'Roboto', sans-serif;
 }
 
-#menu-add {
-  width: 50%;
-  float: left;
-  left: 0;
-  text-align: left;
+#text-sort {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-#trash {
-  width: 50%;
-  float: right;
-  position: absolute;
-  right: 0;
-  text-align: right;
+#sort-count,
+#sort-type {
+  margin-right: .3em;
 }
 
 .align-menu-itens {
