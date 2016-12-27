@@ -3,6 +3,51 @@
   font-family: 'Roboto', sans-serif;
 }
 
+#menu-add {
+  width: 50%;
+  float: left;
+  left: 0;
+  text-align: left;
+}
+
+#trash {
+  width: 50%;
+  float: right;
+  position: absolute;
+  right: 0;
+  text-align: right;
+}
+
+.fixed-at-bottom {
+  position: fixed;
+  bottom: 2em;
+  left: 0;
+}
+
 .centralizar-login {
   text-align: center;
+}
+
+.row {
+  height: 100%;
+}
+
+.show-grid {
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+  border: 1px solid rgba(0,0,0,.5);
+  border-width: 1px 1px 1px 0;
+
+  height: 100%;
+  left: 1em;
+}
+
+.no-margin-bottom {
+  margin-bottom: 0;
+}
+
+fieldset {
+  border-radius: 5px;
+  border: 1px solid #c0c0c0;
 }
