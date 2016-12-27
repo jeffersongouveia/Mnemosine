@@ -23,33 +23,69 @@
             </div>
 
             <div class="form-group no-margin-bottom">
-                <a href="#" class="btn btn-link" role="button">Todos itens</a>
-                <span>3</span>
+              <div class="col-md-3 align-menu-itens no-padding">
+                <div class="align-left">
+                  <a href="#" class="btn btn-link no-padding" role="button">Todos itens</a>
+                </div>
+
+                <div class="align-right">
+                  <span>3</span>
+                </div>
+              </div>
             </div>
 
             <div class="form-group">
-              <a href="#" class="btn btn-link" role="button">Favoritos</a>
-              <span>1</span>
+              <div class="col-md-3 align-menu-itens no-padding">
+                <div class="align-left">
+                  <a href="#" class="btn btn-link no-padding" role="button">Favoritos</a>
+                </div>
+
+                <div class="align-right">
+                  <span>1</span>
+                </div>
+              </div>
             </div>
 
             <fieldset class="form-group">
               <legend>Categorias</legend>
 
-              <div class="form-group no-margin-bottom">
-                <a href="#" class="btn btn-link" role="button">Logins</a>
-                <span>3</span>
+              <div class="form-group no-margin-bottom align-menu-itens col-md-3">
+                <div class="align-left">
+                  <a href="#" class="btn btn-link" role="button">Logins</a>
+                </div>
+
+                <div class="align-right">
+                  <span>3</span>
+                </div>
               </div>
 
-              <div class="form-group no-margin-bottom">
-                <a href="#" class="btn btn-link" role="button">Notas seguras</a>
-                <span>1</span>
+              <div class="form-group no-margin-bottom align-menu-itens col-md-3">
+                <div class="align-left">
+                  <a href="#" class="btn btn-link" role="button">Notas seguras</a>
+                </div>
+
+                <div class="align-right">
+                  <span>1</span>
+                </div>
               </div>
             </fieldset>
 
             <div class="form-group">
               <div class="col-md-3 fixed-at-bottom">
-                <div>
-                  <a id="menu-add" href="#"><img src="img/add.png" alt="Menu de adição"></a>
+                <div class="dropup">
+                  <button id="menu-add" type="button" class="btn-transparent dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <img src="img/add.png" alt="Menu de adição">
+                  </button>
+
+                  <ul class="dropdown-menu" aria-labelledby="menu-add">
+                    <li><a href="#">Login</a></li>
+                    <li><a href="#">Nota segura</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">Usuário</a></li>
+                    <li><a href="#">Grupo</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">Configurações</a></li>
+                  </ul>
                 </div>
 
                 <div>
@@ -67,6 +103,9 @@
 
       <div class="col-md-6 show-grid">
       </div>
+
+      <script src="js/jquery.min.js"></script>
+      <script src="bootstrap/js/bootstrap.min.js"></script>
     </div>
   </body>
 </html>

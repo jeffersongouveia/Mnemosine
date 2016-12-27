@@ -18,6 +18,17 @@
   text-align: right;
 }
 
+.align-menu-itens {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.btn-transparent {
+  border: none;
+  background: rgba(0, 0, 0, 0);
+}
+
 .fixed-at-bottom {
   position: fixed;
   bottom: 2em;
@@ -30,6 +41,26 @@
 
 .row {
   height: 100%;
+}
+
+.align-left {
+  width: 50%;
+  float: left;
+  left: 0;
+  text-align: left;
+}
+
+.align-right {
+  width: 50%;
+  float: right;
+  position: absolute;
+  right: 0;
+  text-align: right;
+}
+
+.no-padding {
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .show-grid {
