@@ -74,6 +74,10 @@
   margin-bottom: 0;
 }
 
+.radio-no-circle {
+  display: none;
+}
+
 fieldset {
   border-radius: 5px;
   border: 1px solid #c0c0c0;

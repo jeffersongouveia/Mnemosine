@@ -122,11 +122,87 @@
                 </button>
 
                 <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="sort">
-                  <li><a href="#">Action</a></li>
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
+                  <li>
+                    <div class="radio">
+                      <label>
+                        <input type="radio" class="radio-no-circle" name="sortListType" id="optionRadio1" value="titulo" checked>
+                        Título
+                      </label>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="radio">
+                      <label>
+                        <input type="radio" class="radio-no-circle" name="sortListType" id="optionRadio2" value="ip">
+                        IP
+                      </label>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="radio">
+                      <label>
+                        <input type="radio" class="radio-no-circle" name="sortListType" id="optionRadio3" value="freq_uso">
+                        Frequência de uso
+                      </label>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="radio">
+                      <label>
+                        <input type="radio" class="radio-no-circle" name="sortListType" id="optionRadio4" value="data_mod">
+                        Data de modificação
+                      </label>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="radio">
+                      <label>
+                        <input type="radio" class="radio-no-circle" name="sortListType" id="optionRadio5" value="data_cri">
+                        Data de criação
+                      </label>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="radio">
+                      <label>
+                        <input type="radio" class="radio-no-circle" name="sortListType" id="optionRadio6" value="data_ult_uso">
+                        Data de último uso
+                      </label>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="radio">
+                      <label>
+                        <input type="radio" class="radio-no-circle" name="sortListType" id="optionRadio7" value="forca_senha">
+                        Força da senha
+                      </label>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="radio">
+                      <label>
+                        <input type="radio" class="radio-no-circle" name="sortListType" id="optionRadio8" value="idade_senha">
+                        Idade da senha
+                      </label>
+                    </div>
+                  </li>
                   <li role="separator" class="divider"></li>
-                  <li><a href="#">Separated link</a></li>
+                  <li>
+                    <div class="radio">
+                      <label>
+                        <input type="radio" class="radio-no-circle" name="sortListOrder" id="optionRadio9" value="ord_cres" checked>
+                        Ordem crescente
+                      </label>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="radio">
+                      <label>
+                        <input type="radio" class="radio-no-circle" name="sortListOrder" id="optionRadio10" value="ord_dec">
+                        Ordem decrescente
+                      </label>
+                    </div>
+                  </li>
                 </ul>
               </div>
             </div>
