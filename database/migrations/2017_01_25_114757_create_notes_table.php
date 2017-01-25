@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUsersTable extends Migration
+class CreateNotesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,18 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('notes', function (Blueprint $table) {
             $table->increments('id')->unsigned();
+            $table->integer('id_vault')->unsigned();
 
             $table->string('name', 50);
-            $table->string('email', 30)->unique();
-            $table->string('password', 50);
+            $table->text('note');
+            $table->boolean('favorite');
 
             $table->boolean('deleted');
-            $table->rememberToken();
             $table->timestamps();
+
+            $table->foreign('id_vault')->references('id')->on('vaults');
         });
     }
 
@@ -33,6 +35,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('notes');
     }
 }
