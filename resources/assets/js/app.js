@@ -1,20 +1,27 @@
+import './bootstrap';
+import Vaults from './models/Vaults';
+import Logins from './models/Logins';
 
-/**
- * First we will load all of this project's JavaScript dependencies which
- * include Vue and Vue Resource. This gives a great starting point for
- * building robust, powerful web applications using Vue and Laravel.
- */
+Vue.component('login-list', require('./components/Logins.vue'));
+Vue.component('dropdown-sort', require('./components/Sort.vue'));
+Vue.component('app-menu', require('./components/Menu.vue'));
 
-require('./bootstrap');
+new Vue({
+    el: '#app',
 
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
+    data: {
+        vaults: new Vaults(),
+        logins: new Logins()
+    },
 
-Vue.component('example', require('./components/Example.vue'));
+    methods: {
+    	getFirstChar(word) {
+    		return word.toString().charAt(0);
+    	}
+    },
 
-const app = new Vue({
-    el: '#app'
+    created() {
+        this.vaults.get();
+        this.logins.get();
+    }
 });

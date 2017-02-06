@@ -1,9 +1,115 @@
+// Bulma
+@import "bulma";
 
-// Fonts
-@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
+@import url('https://fonts.googleapis.com/css?family=Roboto');
 
-// Variables
-@import "variables";
+html,
+body {
+  font-family: 'Roboto', sans-serif;
+  overflow: hidden;
 
-// Bootstrap
-@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+  height: 100%;
+}
+
+.show-grid {
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+  border: 1px solid rgba(0,0,0,.5);
+  border-width: 1px 1px 1px 0;
+
+  left: 1em;
+  overflow-y: scroll;
+}
+
+.menu-center {
+  margin-left: .5em;
+}
+
+#app {
+  height: 105%;
+}
+
+//---------------------------------
+
+//#text-sort {
+//  display: flex;
+//  justify-content: center;
+//  align-items: center;
+//}
+//
+//#sort-count,
+//#sort-type {
+//  margin-right: .3em;
+//}
+//
+//.align-menu-itens {
+//  width: 100%;
+//  display: flex;
+//  align-items: center;
+//}
+//
+//.btn-transparent {
+//  border: none;
+//  background: rgba(0, 0, 0, 0);
+//}
+//
+//.fixed-at-bottom {
+//  position: fixed;
+//  bottom: 2em;
+//  left: 0;
+//}
+//
+//.centralizar-login {
+//  text-align: center;
+//}
+//
+//.row {
+//  height: 100%;
+//}
+//
+//.align-left {
+//  width: 50%;
+//  float: left;
+//  left: 0;
+//  text-align: left;
+//}
+//
+//.align-right {
+//  width: 50%;
+//  float: right;
+//  position: absolute;
+//  right: 0;
+//  text-align: right;
+//}
+//
+//.no-padding {
+//  padding-left: 0;
+//  padding-right: 0;
+//}
+//
+//.no-margin-bottom {
+//  margin-bottom: 0;
+//}
+//
+//.radio-no-circle {
+//  display: none;
+//}
+//
+//.scrollable {
+//  overflow-y: auto;
+//}
+//
+//.is-bold {
+//  font-weight: bold;
+//}
+//
+//.no-space {
+//  margin-top: 0;
+//  margin-bottom: 0;
+//}
+//
+//fieldset {
+//  border-radius: 5px;
+//  border: 1px solid #c0c0c0;
+//}

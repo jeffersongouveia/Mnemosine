@@ -8,8 +8,6 @@ use Mnemosine\Login;
 class LoginsController extends Controller
 {
     public function index() {
-        $logins = Login::all();
-
-        return $logins;
+        return Login::all();
     }
 }
