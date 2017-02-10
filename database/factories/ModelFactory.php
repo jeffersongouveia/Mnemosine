@@ -34,10 +34,11 @@ $factory->define(Mnemosine\Vault::class, function(Faker\Generator $faker) {
 $factory->define(Mnemosine\Login::class, function(Faker\Generator $faker) {
     return [
         'id_vault' => random_int(1, 3),
+        'icon' => '',
         'name' => $faker->word,
         'username' => $faker->userName,
         'password' => $faker->password(6, 21),
-        'strength' => random_int(1, 10),
+        'strength' => random_int(10, 100),
         'ip' => $faker->ipv4,
         'dns' => $faker->domainName,
         'equipment' => random_int(1, 10) % 2 == 0 ? 'Mikrotik' : 'Ubiquiti',

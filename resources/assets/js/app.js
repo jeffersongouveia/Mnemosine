@@ -3,25 +3,28 @@ import Vaults from './models/Vaults';
 import Logins from './models/Logins';
 
 Vue.component('login-list', require('./components/Logins.vue'));
-Vue.component('dropdown-sort', require('./components/Sort.vue'));
-Vue.component('app-menu', require('./components/Menu.vue'));
+Vue.component('login-details', require('./components/LoginDetails.vue'));
 
-new Vue({
+Vue.component('app-menu', require('./components/Menu.vue'));
+Vue.component('dropdown-sort', require('./components/Sort.vue'));
+
+window.app = new Vue({
     el: '#app',
 
     data: {
         vaults: new Vaults(),
-        logins: new Logins()
+        logins: new Logins(),
+        loginSelected: {}
     },
 
     methods: {
-    	getFirstChar(word) {
-    		return word.toString().charAt(0);
-    	}
+        selectLogin(login) {
+            this.loginSelected = login;
+        }
     },
 
     created() {
-        this.vaults.get();
         this.logins.get();
+        this.vaults.get();
     }
 });

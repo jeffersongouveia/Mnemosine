@@ -15,25 +15,32 @@
         data() {
             return {
                 selected_option: 'Título',
-                sort_options: [
-                    'Título',
-                    'IP',
-                    'Frequência de Uso',
-                    'Data de Modificação',
-                    'Data de Criação',
-                    'Data de Último Uso',
-                    'Força da Senha',
-                    'Idade da Senha',
-                    '',
-                    'Ordem Crescente',
-                    'Ordem Decrescente',
-                ]
+                sort_options: {
+                    name: 'Título',
+                    ip: 'IP',
+                    frequency: 'Frequência de Uso',
+                    date_mod: 'Data de Modificação',
+                    date_new: 'Data de Criação',
+                    last_use: 'Data de Último Uso',
+                    strength: 'Força da Senha',
+                    age: 'Idade da Senha',
+                    hr: '',
+                    sort_cre: 'Ordem Crescente',
+                    sort_dec: 'Ordem Decrescente'
+                }
             }
         },
 
         methods: {
             selected(option) {
                 this.selected_option = option;
+
+                for(let item in this.sort_options) {
+                    if(this.sort_options[item] == option) {
+                        app.$emit('selected', item);
+                        break;
+                    }
+                }
             }
         }
     }

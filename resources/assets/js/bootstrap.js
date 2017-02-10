@@ -8,6 +8,7 @@ window.Vue = require('vue');
 require('vue-resource');
 
 window.axios = require('axios');
+
 /**
  * We'll register a HTTP interceptor to attach the "CSRF" header to each of
  * the outgoing requests issued by this application. The CSRF middleware

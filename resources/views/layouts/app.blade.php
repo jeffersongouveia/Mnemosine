@@ -65,15 +65,14 @@
 
             <dropdown-sort></dropdown-sort>
 
-            <login-list :logins="logins.sortBy()"></login-list>
+            <login-list :items="logins" @select="selectLogin"></login-list>
         </div>
 
         <div class="column show-grid">
+            <login-details :login="loginSelected"></login-details>
         </div>
     </div>
 
-    <script src="js/jquery.min.js"></script>
     <script src="js/app.js"></script>
-    <script src="js/bootstrap.min.js"></script>
 </body>
 </html>

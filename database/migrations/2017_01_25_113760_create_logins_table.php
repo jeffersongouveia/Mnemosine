@@ -17,6 +17,8 @@ class CreateLoginsTable extends Migration
             $table->increments('id')->unsigned();
             $table->integer('id_vault')->unsigned();
 
+            $table->string('icon');
+
             $table->string('name', 50);
             $table->string('username', 30);
             $table->string('password', 50);

@@ -21,8 +21,7 @@
     export default {
         props: {
             options: {
-                required: true,
-                type: Array
+                required: true
             },
             isDropup: {
                 default: false
