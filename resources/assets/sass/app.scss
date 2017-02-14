@@ -26,6 +26,12 @@ body {
   margin-left: .5em;
 }
 
+.hold-on-bottom {
+  position: fixed;
+  width: 15%;
+  bottom: 1em;
+}
+
 #app {
   height: 105%;
 }

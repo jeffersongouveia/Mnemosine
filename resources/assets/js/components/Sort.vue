@@ -1,5 +1,5 @@
 <template>
-    <dropdown :options="sort_options" @selectOption="selected">
+    <dropdown class="dropdown-sort" :options="sort_options" @selectOption="selected">
         X itens ordenados por {{ selected_option }} <i class="fa fa-angle-down"></i>
     </dropdown>
 </template>
@@ -45,3 +45,10 @@
         }
     }
 </script>
+
+<style lang="css">
+    .dropdown-sort {
+        position: relative;
+        z-index: 1;
+    }
+</style>

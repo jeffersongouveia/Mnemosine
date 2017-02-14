@@ -7,6 +7,9 @@
 window.Vue = require('vue');
 require('vue-resource');
 
+import VueRouter from 'vue-router';
+Vue.use(VueRouter);
+
 window.axios = require('axios');
 
 /**

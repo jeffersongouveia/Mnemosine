@@ -1,7 +1,7 @@
 <template>
 	<ul class="no-padding-parent">
-		<li class="item-list" v-for="login in logins.sortBy('name')" 
-			@click="selectLogin(login)" :class="{ 'selected': selected == login.id }">
+		<li class="item-list" v-for="login in logins.sortBy('name')" @click="selectLogin(login)"
+            :class="{ 'selected': selected == login.id }">
             <div class="line">
                 <figure class="image is-32x32">
                     <img :src="login.icon" alt="Ícone do login">

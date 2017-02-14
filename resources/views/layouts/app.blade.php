@@ -25,7 +25,9 @@
                     </li>
 
                     <li>
-                        <a>Todos itens<span class="is-pulled-right">X</span></a>
+                        <router-link to="/" exact>
+                            Todos itens<span class="is-pulled-right">X</span>
+                        </router-link>
                     </li>
 
                     <li>
@@ -37,39 +39,28 @@
                     <li><a>Notas seguras</a></li>
 
                     <li>
-                        <a class="is-pulled-left">
-                            <app-menu>
-                                <span class="icon is-medium">
-                                    <i class="fa fa-plus-square-o"></i>
-                                </span>
-                            </app-menu>
-                        </a>
+                        <div class="hold-on-bottom">
+                            <a class="is-pulled-left">
+                                <app-menu>
+                                    <span class="icon is-medium">
+                                        <i class="fa fa-plus-square-o"></i>
+                                    </span>
+                                </app-menu>
+                            </a>
 
-                        <a class="is-pulled-right">
-                            <span class="icon is-medium">
-                                <i class="fa fa-trash-o"></i>
-                            </span>
-                        </a>
+                            <a class="is-pulled-right">
+                                <span class="icon is-medium">
+                                    <i class="fa fa-trash-o"></i>
+                                </span>
+                            </a>
+                        </div>
                     </li>
                 </ul>
             </aside>
         </div>
 
-        <div class="column is-3 show-grid">
-            <div class="control has-icon">
-                <input type="text" class="input" placeholder="Pesquisar">
-                <span class="icon is-small">
-                    <i class="fa fa-search"></i>
-                </span>
-            </div>
-
-            <dropdown-sort></dropdown-sort>
-
-            <login-list :items="logins" @select="selectLogin"></login-list>
-        </div>
-
-        <div class="column show-grid">
-            <login-details :login="loginSelected"></login-details>
+        <div class="column">
+            <router-view></router-view>
         </div>
     </div>
 

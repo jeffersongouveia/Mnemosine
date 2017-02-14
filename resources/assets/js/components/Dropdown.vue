@@ -59,6 +59,7 @@
     .dropdown i {
         color: inherit;
         cursor: pointer;
+        padding: .1em;
     }
 
     .dropdown-content {
