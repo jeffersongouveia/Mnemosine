@@ -8,6 +8,11 @@ export default class Logins {
             .then(response => this.logins = response.data);
     }
 
+    favorites() {
+        return axios.get('/api/favorites')
+            .then(response => this.logins = response.data);
+    }
+
     getLogins() {
         return this.logins;
     }

@@ -1,16 +1,16 @@
 <template>
     <div class="content has-text-centered">
         <span class="dropdown">
-            <a href="#" @click="toogleActive = !toogleActive">
+            <span id="sort" @click="toogleActive = !toogleActive">
                 <slot></slot>
-            </a>
+            </span>
 
             <div class="has-text-left dropdown-content" :class="{ 'show': toogleActive, 'dropup': isDropup }">
                 <div class="box">
-                    <a href="#" v-for="option in options"
-                       v-text="option" @click="selectOption(option)"
-                       :class="{ 'option-hr': option == '' }">
-                    </a>
+                    <router-link v-for="option in options" :to="option.route"
+                       v-text="option.label" @click.native="selectOption"
+                       :class="{ 'option-hr': option.isLine }">
+                    </router-link>
                 </div>
             </div>
         </span>
@@ -36,20 +36,20 @@
         },
 
         methods: {
-            selectOption(option) {
-                this.selected = option;
+            selectOption() {
                 this.toogleActive = false;
-                this.$emit('selectOption', option);
+//                this.selected = option;
+//                this.$emit('selectOption', option);
             }
-        },
-
-        created() {
-            this.selected = this.options[0];
         }
     }
 </script>
 
 <style lang="css">
+    #sort {
+        cursor: pointer;
+    }
+
     .dropdown {
         position: relative;
         display: inline-block;

@@ -10,4 +10,8 @@ class LoginsController extends Controller
     public function index() {
         return Login::all();
     }
+
+    public function favorites() {
+        return Login::where('favorite', true)->get();
+    }
 }

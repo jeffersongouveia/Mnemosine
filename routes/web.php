@@ -1,10 +1,6 @@
 <?php
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/home', function() {
+Route::get('/', function() {
   return view('home');
 });
 
@@ -13,3 +9,6 @@ Route::get('/api/vaults', function() {
 });
 
 Route::resource('/api/logins', 'LoginsController');
+Route::get('/api/favorites', 'LoginsController@favorites');
+
+Route::resource('/api/notes', 'NotesController');

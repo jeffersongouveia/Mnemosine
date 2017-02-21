@@ -5,7 +5,7 @@
 </template>
 
 <script>
-    import Dropdown from './Dropdown.vue';
+    import Dropdown from './base/Dropdown.vue';
 
     export default {
         components: {
@@ -15,19 +15,19 @@
         data() {
             return {
                 selected_option: 'Título',
-                sort_options: {
-                    name: 'Título',
-                    ip: 'IP',
-                    frequency: 'Frequência de Uso',
-                    date_mod: 'Data de Modificação',
-                    date_new: 'Data de Criação',
-                    last_use: 'Data de Último Uso',
-                    strength: 'Força da Senha',
-                    age: 'Idade da Senha',
-                    hr: '',
-                    sort_cre: 'Ordem Crescente',
-                    sort_dec: 'Ordem Decrescente'
-                }
+                sort_options: [
+                    { prop: 'name', label: 'Título', route: '' },
+                    { prop: 'ip', label: 'IP', route: '' },
+                    { prop: 'frequency', label: 'Frequência de Uso', route: '' },
+                    { prop: 'date_mod', label: 'Data de Modificação', route: '' },
+                    { prop: 'date_new', label: 'Data de Criação', route: '' },
+                    { prop: 'last_use', label: 'Data de Último Uso', route: '' },
+                    { prop: 'strength', label: 'Força da Senha', route: '' },
+                    { prop: 'age', label: 'Idade da Senha', route: '' },
+                    { prop: 'hr', label: '', isLine: true, route: '' },
+                    { prop: 'sort_cre', label: 'Ordem Crescente', route: '' },
+                    { prop: 'sort_dec', label: 'Ordem Decrescente', route: '' }
+                ]
             }
         },
 
@@ -36,7 +36,7 @@
                 this.selected_option = option;
 
                 for(let item in this.sort_options) {
-                    if(this.sort_options[item] == option) {
+                    if(this.sort_options.label == option) {
                         app.$emit('selected', item);
                         break;
                     }

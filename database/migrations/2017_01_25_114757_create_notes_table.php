@@ -17,6 +17,8 @@ class CreateNotesTable extends Migration
             $table->increments('id')->unsigned();
             $table->integer('id_vault')->unsigned();
 
+            $table->string('icon');
+
             $table->string('name', 50);
             $table->text('note');
             $table->boolean('favorite');

@@ -11,13 +11,11 @@
 </template>
 
 <script>
-    export default {
-
-    }
+    export default {}
 </script>
 
 <style lang="css">
     .columns {
-        height: 100%;
+        height: 200%;
     }
 </style>

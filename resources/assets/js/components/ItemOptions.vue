@@ -1,9 +1,15 @@
 <template>
     <span class="show-options" @mouseleave="copied = false">
-        <span v-if="!passwordOption" v-text="value"></span>
-        <input v-else :type="typeInput" :value="value" class="is-disabled">
+        <div class="value">
+            <input v-if="!isPassword && !isStrength" type="text" :value="value" class="input is-disabled">
+            <input v-else-if="isPassword" :type="typeInput" :value="value" class="input is-disabled">
+            <progress v-else id="strength-pass" :value="value" max="100"
+                      class="info progress is-small"
+                      :class="[value < 30 ? 'is-danger' : value > 80 ? 'is-success' : 'is-warning']">
+            </progress>
+        </div>
 
-        <span class="options">
+        <span class="options" v-show="enableCopy">
             <button class="button is-small" :class="{ 'is-success': copied }"
                     @click="copied = true" :data-clipboard-text="value">
                 <span class="icon is-small">
@@ -11,7 +17,7 @@
                 </span>
             </button>
 
-            <button class="button is-small" v-if="passwordOption" @click="togglePassword">
+            <button class="button is-small" v-if="isPassword" @click="togglePassword">
                 <span class="icon is-small">
                     <i class="fa" :class="[hidePassword ? 'fa-eye' : 'fa-eye-slash']"></i>
                 </span>
@@ -28,8 +34,15 @@
             value: {
                 required: true
             },
-
-            passwordOption: {
+            enableCopy: {
+                required: false,
+                default: true
+            },
+            isPassword: {
+                required: false,
+                default: false
+            },
+            isStrength: {
                 required: false,
                 default: false
             }
@@ -58,6 +71,14 @@
 </script>
 
 <style lang="css">
+    #strength-pass {
+        width: 10em;
+    }
+
+    .value {
+        display: inline-block;
+    }
+
     .options {
         margin-left: .5em;
         float: right;

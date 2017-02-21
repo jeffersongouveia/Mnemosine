@@ -46,3 +46,14 @@ $factory->define(Mnemosine\Login::class, function(Faker\Generator $faker) {
         'deleted' => false
     ];
 });
+
+$factory->define(Mnemosine\Note::class, function(Faker\Generator $faker) {
+    return [
+        'id_vault' => random_int(1, 3),
+        'icon' => '',
+        'name' => $faker->word,
+        'note' => $faker->paragraphs(3, true),
+        'favorite' => false,
+        'deleted' => false
+    ];
+});
