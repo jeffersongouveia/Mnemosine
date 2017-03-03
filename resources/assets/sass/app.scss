@@ -3,6 +3,8 @@
 
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
+$details-padding: 25%;
+
 html,
 body {
   font-family: 'Roboto', sans-serif;
@@ -31,6 +33,64 @@ body {
   width: 15%;
   bottom: 1em;
 }
+
+/*********************/
+
+.item-details {
+  position: relative;
+  width: 100%;
+  margin-top: 1.5em;
+}
+
+.item-details .header {
+  margin-bottom: 5em;
+  display: inline-block;
+  padding-left: $details-padding;
+}
+
+.item-details .content {
+  position: relative;
+  width: 100%;
+  padding-left: $details-padding;
+}
+
+.item-details .content .line {
+  display: inline-block;
+}
+
+.item-details .header,
+.item-details .content {
+  padding-right: 1em;
+}
+
+.item-details .header .image,
+.item-details .label {
+  float: left;
+  margin-right: 1em;
+}
+
+.item-details .header .title,
+.item-details .info {
+  float: right;
+}
+
+.item-details .content-main,
+.item-details .content-body {
+  display: block;
+  margin-bottom: 2em;
+}
+
+.item-details .content-footer {
+  display: block;
+}
+
+.item-details .header .hold-on-right {
+  position: absolute;
+  top: 0;
+  right: 1em;
+}
+
+/*********************/
 
 #app {
   height: 200%;

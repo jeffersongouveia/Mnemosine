@@ -3,8 +3,12 @@ import VueRouter from 'vue-router';
 export default new VueRouter({
    routes: [
        {
+           path: '/all',
+           component: require('./components/item/AllItems.vue')
+       },
+       {
            path: '/logins',
-           component: require('./components/Logins.vue')
+           component: require('./components/login/Logins.vue')
        },
        {
            path: '/favorites',
@@ -12,12 +16,16 @@ export default new VueRouter({
        },
        {
            path: '/notes',
-           component: require('./components/Notes.vue')
+           component: require('./components/note/Notes.vue')
        },
        
        {
            path: '/login/create',
            component: require('./components/login/LoginCreate.vue')
+       },
+       {
+           path: '/note/create',
+           component: require('./components/note/NoteCreate.vue')
        }
    ]
 });

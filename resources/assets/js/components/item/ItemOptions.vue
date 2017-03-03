@@ -3,7 +3,7 @@
         <div class="value">
             <input v-if="!isPassword && !isStrength" type="text" :value="value" class="input is-disabled">
             <input v-else-if="isPassword" :type="typeInput" :value="value" class="input is-disabled">
-            <progress v-else id="strength-pass" :value="value" max="100"
+            <progress v-else id="strength" :value="value" max="100"
                       class="info progress is-small"
                       :class="[value < 30 ? 'is-danger' : value > 80 ? 'is-success' : 'is-warning']">
             </progress>
@@ -27,7 +27,7 @@
 </template>
 
 <script>
-    import Clipboard from '../clipboard.min';
+    import Clipboard from '../../clipboard.min';
 
     export default {
         props: {
@@ -71,7 +71,7 @@
 </script>
 
 <style lang="css">
-    #strength-pass {
+    #strength {
         width: 10em;
     }
 

@@ -1,14 +1,27 @@
 <?php
 
+use Mnemosine\Login;
+use Mnemosine\Note;
+
 Route::get('/', function() {
   return view('home');
 });
 
-Route::get('/api/vaults', function() {
-    return Mnemosine\Vault::all();
+Route::get('/api/all', function() {
+    $logins = Login::where('deleted', false)->get();
+    $notes = Note::where('deleted', false)->get();
+
+    return array($logins, $notes);
 });
 
-Route::resource('/api/logins', 'LoginsController');
-Route::get('/api/favorites', 'LoginsController@favorites');
+Route::get('/api/favorites', function() {
+    $logins = Login::where('favorite', true)->get();
+    $notes = Note::where('favorite', true)->get();
 
+    return array($logins, $notes);
+});
+
+Route::resource('/api/vaults', 'VaultsController');
+Route::resource('/api/logins', 'LoginsController');
 Route::resource('/api/notes', 'NotesController');
+

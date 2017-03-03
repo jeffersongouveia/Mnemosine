@@ -1,9 +1,9 @@
 <template>
-    <items-list :items="notes"></items-list>
+    <items-list :items="items"></items-list>
 </template>
 
 <script>
-    import Notes from '../models/Notes';
+    import Items from '../../models/Items';
 
     import ItemsList from './ItemsList.vue';
 
@@ -14,12 +14,12 @@
 
         data() {
             return {
-                notes: new Notes()
+                items: new Items()
             }
         },
 
         created() {
-            this.notes.get();
+            this.items.get();
         }
     }
 </script>

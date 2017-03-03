@@ -26,4 +26,10 @@ elixir((mix) => {
 
     mix.sass('app.scss');
     mix.webpack('app.js');
+
+    mix.browserSync({
+        proxy: 'localhost:8000',
+        browser: 'google chrome',
+        open: false
+    })
 });

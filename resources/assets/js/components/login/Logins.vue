@@ -1,11 +1,11 @@
 <template>
-    <items-list :items="favorites"></items-list>
+    <items-list :items="logins"></items-list>
 </template>
 
 <script>
-    import Favorites from '../models/Favorites';
+    import Logins from '../../models/Logins';
 
-    import ItemsList from './item/ItemsList.vue';
+    import ItemsList from '../item/ItemsList.vue';
 
     export default {
         components: {
@@ -14,12 +14,12 @@
 
         data() {
             return {
-                favorites: new Favorites()
+                logins: new Logins()
             }
         },
 
         created() {
-            this.favorites.get();
+            this.logins.get();
         }
     }
 </script>

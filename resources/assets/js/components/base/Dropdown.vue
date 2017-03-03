@@ -8,7 +8,7 @@
             <div class="has-text-left dropdown-content" :class="{ 'show': toogleActive, 'dropup': isDropup }">
                 <div class="box">
                     <router-link v-for="option in options" :to="option.route"
-                       v-text="option.label" @click.native="selectOption"
+                       v-text="option.label" @click.native="selectOption(option)"
                        :class="{ 'option-hr': option.isLine }">
                     </router-link>
                 </div>
@@ -30,16 +30,15 @@
 
         data() {
             return {
-                toogleActive: false,
-                selected: ''
+                toogleActive: false
             }
         },
 
         methods: {
-            selectOption() {
+            selectOption(option) {
                 this.toogleActive = false;
-//                this.selected = option;
-//                this.$emit('selectOption', option);
+
+                this.$emit('selectOption', option);
             }
         }
     }

@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/app.css">
     <link rel="stylesheet" href="fonts/css/font-awesome.min.css">
 
-    <title>{{config('app.name')}}</title>
+    <title>{{ config('app.name') }}</title>
 </head>
 <body>
     <div class="columns" id="app">
@@ -18,16 +18,16 @@
                 <ul class="menu-list">
                     <li>
                         <div class="select is-fullwidth">
-                            <select title="Selecione um cofre para ver seus Logins e Notas Seguras">
-                                <option v-for="vault in vaults.getVaults()" value="vault.id" v-text="vault.name"></option>
+                            <select id="vaults" title="Selecione um cofre para ver seus Logins e Notas Seguras">
+                                <option v-for="vault in vaults.getVaults()" :value="vault.id" v-text="vault.name"></option>
                             </select>
                         </div>
                     </li>
 
                     <li>
-                        <a>
+                        <router-link to="/all">
                             Todos itens<span class="is-pulled-right">X</span>
-                        </a>
+                        </router-link>
                     </li>
 
                     <li>

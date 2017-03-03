@@ -5,19 +5,19 @@
                 <div class="line">
                     <label class="label">Nota</label>
 
-                    <textarea class="info textarea is-disabled" cols="5" rows="100">{{ note.note }}</textarea>
+                    <textarea class="info textarea" :class="{'is-disabled': !enableInput}" cols="5" rows="100">{{ note.note }}</textarea>
                 </div>
             </div>
         </section>
 
         <section class="content-body">
-            <item-line v-for="body in loadNote.body" :label="body.label" :value="body.value"></item-line>
+            <item-line v-for="body in loadNote.body" :label="body.label" :value="body.value" :enable-input="enableInput"></item-line>
         </section>
     </div>
 </template>
 
 <script>
-    import ItemLine from './ItemLine.vue';
+    import ItemLine from '../item/ItemLine.vue';
 
     export default {
         components: {
@@ -28,6 +28,11 @@
             note: {
                 required: true,
                 type: Object
+            },
+
+            enableInput: {
+                required: false,
+                default: false
             }
         },
 

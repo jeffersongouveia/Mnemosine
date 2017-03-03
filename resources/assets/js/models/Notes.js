@@ -23,4 +23,13 @@ export default class Notes {
     count() {
         return this.notes.length;
     }
+
+    remove(note) {
+        for(let i = 0; i < this.notes.length; i++) {
+            if(this.notes[i].id == note.id) {
+                delete this.notes[i];
+                break;
+            }
+        }
+    }
 }
