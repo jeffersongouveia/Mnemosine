@@ -28,9 +28,7 @@
                     </div>
                 </section>
 
-                <section class="content-body">
-
-                </section>
+                <section class="content-body"></section>
 
                 <section class="content-footer">
                     <button type="submit" class="button is-primary">Salvar</button>
@@ -41,8 +39,6 @@
 </template>
 
 <script>
-    import Notes from '../../models/Notes';
-
     export default {
         data() {
             return {

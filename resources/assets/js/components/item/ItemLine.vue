@@ -3,16 +3,18 @@
         <div class="line">
             <label class="label" v-text="label"></label>
 
-            <div class="is-pulled-right">
-                <div v-if="enableInput && !isStrength">
-                    <input class="input" type="text" :id="idItem" :value="value">
-                </div>
+            <div class="info">
+                <div class="half-width">
+                    <div v-if="enableInput && !isStrength">
+                        <input class="input" type="text" :id="idItem" :value="value">
+                    </div>
 
-                <div v-else>
-                    <item-options v-if="!isInput" class="info" :value="value" :enable-copy="enableCopy"
-                                  :is-password="isPassword" :is-strength="isStrength">
-                    </item-options>
-                    <input v-else :type="isPassword ? 'password' : 'text'" class="input">
+                    <div v-else>
+                        <item-options v-if="!isInput" :value="value" :enable-copy="enableCopy"
+                                      :is-password="isPassword" :is-strength="isStrength">
+                        </item-options>
+                        <input v-else :type="isPassword ? 'password' : 'text'" class="input">
+                    </div>
                 </div>
             </div>
         </div>
@@ -70,3 +72,9 @@
         }
     }
 </script>
+
+<style lang="css">
+    .half-width {
+        width: 50%;
+    }
+</style>

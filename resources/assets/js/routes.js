@@ -26,6 +26,10 @@ export default new VueRouter({
        {
            path: '/note/create',
            component: require('./components/note/NoteCreate.vue')
+       },
+       {
+           path: '/user/create',
+           component: require('./components/UserCreate.vue')
        }
    ]
 });

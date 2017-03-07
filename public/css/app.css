@@ -6444,11 +6444,21 @@ body {
 .item-details .content {
   position: relative;
   width: 100%;
-  padding-left: 25%;
 }
 
 .item-details .content .line {
   display: inline-block;
+  width: 100%;
+}
+
+.item-details .line .label {
+  text-align: right;
+  width: 30%;
+}
+
+.item-details .line .info {
+  text-align: left;
+  width: 66%;
 }
 
 .item-details .header,

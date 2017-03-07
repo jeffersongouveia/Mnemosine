@@ -14,7 +14,7 @@
 
         data() {
             return {
-                notes: new Notes()
+                notes: new Notes('/api/notes')
             }
         },
 

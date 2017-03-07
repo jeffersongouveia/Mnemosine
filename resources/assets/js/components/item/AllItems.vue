@@ -14,12 +14,12 @@
 
         data() {
             return {
-                items: new Items()
+                items: new Items('/api/all')
             }
         },
 
         created() {
-            this.items.get();
+            this.items.get(true);
         }
     }
 </script>

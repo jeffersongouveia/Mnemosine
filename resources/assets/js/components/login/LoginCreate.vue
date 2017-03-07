@@ -95,8 +95,6 @@
 </template>
 
 <script>
-    import Login from '../../models/Logins';
-
     import LoginInput from './LoginInput.vue';
     import Create from '../base/Create.vue';
 

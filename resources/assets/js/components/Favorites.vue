@@ -14,12 +14,12 @@
 
         data() {
             return {
-                favorites: new Favorites()
+                favorites: new Favorites('/api/favorites')
             }
         },
 
         created() {
-            this.favorites.get();
+            this.favorites.get(true);
         }
     }
 </script>

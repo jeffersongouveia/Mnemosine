@@ -8,7 +8,7 @@
                 </span>
             </div>
 
-            <sort @selected="changeSortType"></sort>
+            <sort :quantity="quantity" @selected="changeSortType"></sort>
 
             <div class="scrollable">
                 <ul class="no-padding-parent">
@@ -66,6 +66,10 @@
         computed: {
             loadItens() {
                 return this.items.sortBy(this.sortType);
+            },
+
+            quantity() {
+                return this.items.count();
             }
         },
 

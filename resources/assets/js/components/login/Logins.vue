@@ -14,7 +14,7 @@
 
         data() {
             return {
-                logins: new Logins()
+                logins: new Logins('/api/logins')
             }
         },
 

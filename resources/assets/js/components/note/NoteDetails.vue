@@ -56,6 +56,6 @@
 
 <style lang="css">
     .content-main .container .line .textarea {
-
+        min-width: 0;
     }
 </style>

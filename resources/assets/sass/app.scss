@@ -4,6 +4,7 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
 $details-padding: 25%;
+$padding-grid: 10px;
 
 html,
 body {
@@ -14,8 +15,8 @@ body {
 }
 
 .show-grid {
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: $padding-grid;
+  padding-bottom: $padding-grid;
 
   border: 1px solid rgba(0,0,0,.5);
   border-width: 1px 1px 1px 0;
@@ -51,11 +52,21 @@ body {
 .item-details .content {
   position: relative;
   width: 100%;
-  padding-left: $details-padding;
 }
 
 .item-details .content .line {
   display: inline-block;
+  width: 100%;
+}
+
+.item-details .line .label {
+  text-align: right;
+  width: 30%;
+}
+
+.item-details .line .info {
+  text-align: left;
+  width: 66%;
 }
 
 .item-details .header,

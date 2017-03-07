@@ -1,6 +1,6 @@
 <template>
     <dropdown class="dropdown-sort" :options="sort_options" @selectOption="selected">
-        X itens ordenados por {{ selected_option }} <i class="fa fa-angle-down"></i>
+        {{ quantity }} itens ordenados por {{ selected_option }} <i class="fa fa-angle-down"></i>
     </dropdown>
 </template>
 
@@ -10,6 +10,13 @@
     export default {
         components: {
             'dropdown': Dropdown
+        },
+
+        props: {
+            quantity: {
+                required: true,
+                default: 0
+            }
         },
 
         data() {
@@ -63,7 +70,11 @@
 
         methods: {
             selected(option) {
-                this.selected_option = option.label;
+                // filtra para não trocar o texto ao ordenar crescentemente ou decrescente
+                if(!/^sort/.test(option.prop)) {
+                    this.selected_option = option.label;
+                }
+
                 this.$emit('selected', option);
             }
         }
