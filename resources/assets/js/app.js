@@ -10,7 +10,13 @@ window.app = new Vue({
     router: Router,
 
     data: {
-        vaults: new Vaults()
+        vaults: new Vaults('/api/vaults')
+    },
+
+    computed: {
+    	getVaults() {
+    		return this.vaults.getData();
+    	}
     },
 
     created() {

@@ -30,6 +30,10 @@ export default new VueRouter({
        {
            path: '/user/create',
            component: require('./components/UserCreate.vue')
+       },
+       {
+           path: '/group/create',
+           component: require('./components/GroupCreate.vue')
        }
    ]
 });

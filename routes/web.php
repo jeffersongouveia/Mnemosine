@@ -21,7 +21,10 @@ Route::get('/api/favorites', function() {
     return array($logins, $notes);
 });
 
+
 Route::resource('/api/vaults', 'VaultsController');
 Route::resource('/api/logins', 'LoginsController');
 Route::resource('/api/notes', 'NotesController');
 
+Route::resource('/api/users', 'UsersController');
+Route::resource('/api/groups', 'GroupsController');
