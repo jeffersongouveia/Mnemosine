@@ -103,6 +103,74 @@ body {
 
 /*********************/
 
+.no-padding-parent {
+  margin-left: -0.75em;
+  margin-right: -0.75em;
+}
+
+.is-fullheight {
+  height: 100%;
+}
+
+.scrollable {
+  overflow-y: scroll;
+  height: 100%;
+}
+
+.item-list {
+  margin-bottom: .1em;
+  padding-left: 0.75em;
+  padding-right: 0.75em;
+  display: block;
+}
+
+.item-list .line {
+  display: inline-block;
+  position: relative;
+}
+
+.item-list .line figure {
+  position: absolute;
+  margin-right: 1em;
+  bottom: 0.3em;
+}
+
+.item-list .line .item-content {
+  float: right;
+  margin-left: 3em;
+}
+
+.item-list:hover {
+  background-color: whitesmoke;
+  color: #00d1b2;
+}
+
+.selected {
+  background-color: whitesmoke;
+}
+
+/*********************/
+
+.options {
+  margin-left: .5em;
+  float: right;
+}
+
+.options .button {
+  -webkit-transition: opacity 0.3s ease-in-out;
+  -moz-transition: opacity 0.3s ease-in-out;
+  -o-transition: opacity 0.3s ease-in-out;
+  -ms-transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
+  opacity: 0;
+}
+
+.show-options:hover .button {
+  opacity: 1;
+}
+
+/*********************/
+
 #app {
   height: 200%;
 }

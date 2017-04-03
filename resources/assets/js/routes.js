@@ -34,6 +34,11 @@ export default new VueRouter({
        {
            path: '/group/create',
            component: require('./components/GroupCreate.vue')
+       },
+
+       {
+           path: '/configurations',
+           component: require('./components/config/ConfigsList.vue')
        }
    ]
 });

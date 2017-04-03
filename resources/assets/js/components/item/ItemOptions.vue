@@ -3,10 +3,7 @@
         <div class="value">
             <input v-if="!isPassword && !isStrength" type="text" :value="value" class="input is-disabled">
             <input v-else-if="isPassword" :type="typeInput" :value="value" class="input is-disabled">
-            <progress v-else id="strength" :value="value" max="100"
-                      class="info progress is-small"
-                      :class="[value < 30 ? 'is-danger' : value > 80 ? 'is-success' : 'is-warning']">
-            </progress>
+            <strength v-else id="strength" :value="value"></strength>
         </div>
 
         <span class="options" v-show="enableCopy">
@@ -28,8 +25,11 @@
 
 <script>
     import Clipboard from '../../clipboard.min';
+    import Strength from '../base/Strength.vue';
 
     export default {
+        components: { Strength },
+
         props: {
             value: {
                 required: true
@@ -77,23 +77,5 @@
 
     .value {
         display: inline-block;
-    }
-
-    .options {
-        margin-left: .5em;
-        float: right;
-    }
-
-    .options .button {
-        -webkit-transition: opacity 0.3s ease-in-out;
-        -moz-transition: opacity 0.3s ease-in-out;
-        -o-transition: opacity 0.3s ease-in-out;
-        -ms-transition: opacity 0.3s ease-in-out;
-        transition: opacity 0.3s ease-in-out;
-        opacity: 0;
-    }
-
-    .show-options:hover .button {
-        opacity: 1;
     }
 </style>

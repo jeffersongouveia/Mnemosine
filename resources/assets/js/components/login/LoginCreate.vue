@@ -7,7 +7,7 @@
                         <img :src="form.icon" alt="Ícone do item">
                     </figure>
 
-                    <input type="text" class="input" v-model="form.name" autofocus>
+                    <input type="text" class="input" v-model="form.name" placeholder="Nome" autofocus>
                 </div>
             </section>
 
@@ -21,7 +21,7 @@
                                 </div>
 
                                 <div class="control">
-                                    <input type="text" class="input" v-model="form.username">
+                                    <input type="text" class="input" v-model="form.username" placeholder="Adicione o nome de usuário">
                                 </div>
                             </div>
                         </div>
@@ -33,13 +33,29 @@
                                 <div class="control-label">
                                     <label class="label">Senha</label>
                                 </div>
-
+                                <!-- TODO: adicionar na a checagem de força da senha ao digitar -->
                                 <div class="control">
-                                    <input type="password" class="input" v-model="form.password">
+                                    <input type="text" class="input" v-model="form.password" placeholder="Adicione ou utilize o gerador de senhas">
                                 </div>
                             </div>
                         </div>
                     </div>
+
+                    <div class="container">
+                        <div class="line">
+                            <div class="control is-horizontal">
+                                <div class="control-label">
+                                    <label class="label">Força da senha</label>
+                                </div>
+
+                                <div class="control">
+                                    <strength :value="form.strength"></strength>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <password @generated="loadPassword" @checkedStrength="loadStrength"></password>
                 </section>
 
                 <section class="content-body">
@@ -51,7 +67,7 @@
                                 </div>
 
                                 <div class="control">
-                                    <input type="text" class="input" v-model="form.ip">
+                                    <input type="text" class="input" v-model="form.ip" placeholder="Adicione o IP do dispositivo/software">
                                 </div>
                             </div>
                         </div>
@@ -65,7 +81,7 @@
                                 </div>
 
                                 <div class="control">
-                                    <input type="text" class="input" v-model="form.dns">
+                                    <input type="text" class="input" v-model="form.dns" placeholder="Adicione o nome de domínio">
                                 </div>
                             </div>
                         </div>
@@ -79,7 +95,7 @@
                                 </div>
 
                                 <div class="control">
-                                    <input type="text" class="input" v-model="form.equipment">
+                                    <input type="text" class="input" v-model="form.equipment" placeholder="Adicione o tipo de equipamento">
                                 </div>
                             </div>
                         </div>
@@ -97,9 +113,11 @@
 <script>
     import LoginInput from './LoginInput.vue';
     import Create from '../base/Create.vue';
+    import Password from '../base/Password.vue';
+    import Strength from '../base/Strength.vue';
 
     export default {
-        components: { LoginInput, Create },
+        components: { LoginInput, Create, Password, Strength },
 
         data() {
             return {
@@ -130,6 +148,14 @@
         },
 
         methods: {
+            loadPassword(generatedPassword) {
+                this.form.password = generatedPassword;
+            },
+
+            loadStrength(strength) {
+                this.form.strength = strength;
+            },
+
             onSubmit() {
                 this.form.id_vault = this.getIdVault;
 

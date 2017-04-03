@@ -22,7 +22,7 @@
                             <div class="item-content">
                                 <h4><strong>{{ item.name }}</strong></h4>
 
-                                <small v-if="item.username">{{ item.username }}</small>
+                                <small v-if="isLogin(item)">{{ item.username }}</small>
                                 <small v-else>{{ item.note | resume }}</small>
                             </div>
                         </div>
@@ -74,6 +74,10 @@
         },
 
 		methods: {
+            isLogin(item) {
+                return typeof item['username'] !== 'undefined';
+            },
+
 			selectItem(item) {
 				this.selected = item.id;
                 this.itemSelected = item;
@@ -115,51 +119,3 @@
 		}
 	}
 </script>
-
-<style lang="css">
-	.no-padding-parent {
-		margin-left: -0.75em;
-		margin-right: -0.75em;
-	}
-
-    .is-fullheight {
-        height: 100%;
-    }
-
-    .scrollable {
-        overflow-y: scroll;
-        height: 100%;
-    }
-
-	.item-list {
-		margin-bottom: .1em;
-		padding-left: 0.75em;
-		padding-right: 0.75em;
-        display: block;
-	}
-
-    .item-list .line {
-        display: inline-block;
-        position: relative;
-    }
-
-    .item-list .line figure {
-        position: absolute;
-        margin-right: 1em;
-        bottom: 0.3em;
-    }
-
-    .item-list .line .item-content {
-        float: right;
-        margin-left: 3em;
-    }
-
-	.item-list:hover {
-		background-color: whitesmoke;
-  	    color: #00d1b2;
-	}
-
-	.selected {
-		background-color: whitesmoke;
-	}
-</style>

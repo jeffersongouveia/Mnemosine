@@ -6,6 +6,8 @@
                        :enable-copy="main.enableCopy" :is-password="main.isPassword" :is-strength="main.isStrength"
                        :enable-input="enableInput">
             </item-line>
+
+            <password v-show="enableInput" @generated="reloadPassword" @checkedStrength="reloadStrength"></password>
         </section>
 
         <section class="content-body">
@@ -20,10 +22,12 @@
 
 <script>
     import ItemLine from '../item/ItemLine.vue';
+    import Password from '../base/Password.vue';
 
     export default {
         components: {
-            'item-line': ItemLine
+            'item-line': ItemLine,
+            'password': Password
         },
 
         props: {
@@ -81,6 +85,16 @@
                         }
                     ]
                 }
+            }
+        },
+
+        methods: {
+            reloadPassword(passwordGenerated) {
+                this.login.password = passwordGenerated;
+            },
+
+            reloadStrength(strength) {
+                this.login.strength = strength;
             }
         }
     }

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.0/css/bulma.min.css">
+	<style>
+		input[id="length"] {
+			width: 15%;
+		}
+
+		input[id="password"] {
+			width: 30%;
+		}
+	</style>
+
+	<title>Quick test page</title>
+</head>
+<body>
+	<div class="field">
+		<label class="label">Tamanho</label>
+    
+    	<p class="control">
+      		<input class="input" id="length" type="number" value="15">
+    	</p>
+  	</div>
+
+  	<div class="field is-horizontal">
+  		<div class="field-body">
+  			<div class="field is-narrow">
+  				<div class="control">
+  					<label class="checkbox">
+  						<input type="checkbox" name="lowercase" id="lowercase" checked="true">
+  						Minúsculas
+  					</label>
+
+  					<label class="checkbox">
+  						<input type="checkbox" name="uppercase" id="uppercase" checked="true">
+  						Maiúsculas
+  					</label>
+
+  					<label class="checkbox">
+  						<input type="checkbox" name="numbers" id="numbers" checked="true">
+  						Números
+  					</label>
+
+  					<label class="checkbox">
+  						<input type="checkbox" name="special" id="special" checked="true">
+  						Caractéres especiais
+  					</label>
+  				</div>
+  			</div>
+  		</div>
+  	</div>
+
+	<div class="field">
+    	<label class="label">Senha</label>
+    
+    	<p class="control">
+      		<input class="input" id="password" type="text" size="40">
+    	</p>
+	</div>
+  
+	<div class="field">
+		<p class="control">
+      		<button class="button is-primary" onClick="generate()">Gerar Senha</button>
+    	</p>
+  	</div>
+
+  	<script>
+  		function randomPassword(length, options) {
+  			let chars = [
+	  			[options[0], "0123456789"],
+				[options[1], "abcdefghijklmnopqrstuvwxyz"],
+				[options[2], "ABCDEFGHIJKLMNOPQRSTUVWXYZ"],
+				[options[3], "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"],
+  			];
+    		let password = "";
+    		
+    		for (let x = 0; x < length; x++) {
+    			// Instancia a variavel
+    			let charset;
+    			do {
+    				// Pega um número aleatório entre 0 e 3 que são os índices de chars
+    				// O cálculo possui o índice maior como exclusivo, portanto deve-se adicionar +1 ao intervalo
+    				charset = chars[Math.floor(Math.random() * 4)];
+    			} 
+    			// Se o agrupamento de caracteres foi solicitado (primeira posição igual a TRUE) então da-se procedimento a inclusão dele na senha que será gerada
+    			while(!charset[0]);
+
+    			// Como o índice inicia em 0, o tamanho do array será sempre o último índice + 1
+    			// E como o calculo abaixo considera o MAX como exclusivo será retornado um índice dentro dos limites, sem que haja estouro
+        		let i = Math.floor(Math.random() * charset[1].length);
+        		// Pega o caracter no índice gerado aleatoriamente
+        		password += charset[1].charAt(i);
+    		}
+    		
+    		return password;
+  		}
+
+  		function generate() {
+  			let length = document.getElementById('length');
+  			let password = document.getElementById('password');
+
+  			let lowercase = document.getElementById('lowercase');
+  			let uppercase = document.getElementById('uppercase');
+  			let numbers = document.getElementById('numbers');
+  			let special = document.getElementById('special');
+
+  			let options = [
+  				numbers.checked,
+  				lowercase.checked,
+  				uppercase.checked,
+  				special.checked
+  			];
+
+  			password.value = this.randomPassword(length.value, options);
+  		}
+  	</script>
+</body>
+</html>

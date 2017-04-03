@@ -148,7 +148,6 @@
 
             //pega todos os valores dos inputs e os armazena numa variável
             loadData() {
-                //para guardar o Object temporariamente
                 let field;
 
                 for(let i = 0; i < this.props.length; i++) {
