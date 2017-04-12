@@ -1,3 +1,5 @@
+<!-- TODO: adicionar um campo pra marcar que os mesmos dados devem ser usados pra criar um usuário no RADIUS -->
+<!-- TODO: adicionar um campo para caso o usuário queira dar outro username pro RADIUS que sera criado -->
 <template>
     <div class="item-details">
         <form method="post" @submit.prevent="onSubmit">

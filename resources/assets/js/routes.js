@@ -18,7 +18,11 @@ export default new VueRouter({
            path: '/notes',
            component: require('./components/note/Notes.vue')
        },
-       
+
+       {
+           path: '/radius/create',
+           component: require('./components/radius/RadiusCreate.vue')
+       },
        {
            path: '/login/create',
            component: require('./components/login/LoginCreate.vue')

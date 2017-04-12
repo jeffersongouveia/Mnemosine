@@ -26,7 +26,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'pgsql'),
+    'default' => env('DB_CONNECTION', 'mysql'),
 
     /*
     |--------------------------------------------------------------------------
@@ -54,11 +54,25 @@ return [
 
         'mysql' => [
             'driver' => 'mysql',
-            'host' => env('DB_HOST', '127.0.0.1'),
+            'host' => env('DB_HOST', '172.30.0.190'),
             'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'forge'),
-            'username' => env('DB_USERNAME', 'forge'),
-            'password' => env('DB_PASSWORD', ''),
+            'database' => env('DB_DATABASE', 'mnemosine'),
+            'username' => env('DB_USERNAME', 'mnemosine'),
+            'password' => env('DB_PASSWORD', 'mnemosine@'),
+            'charset' => 'utf8',
+            'collation' => 'utf8_unicode_ci',
+            'prefix' => '',
+            'strict' => true,
+            'engine' => null,
+        ],
+
+        'mysql_radius' => [
+            'driver' => 'mysql',
+            'host' => env('DB_HOST', '172.30.0.190'),
+            'port' => env('DB_PORT', '3306'),
+            'database' => env('DB_RADIUS_DATABASE', 'radius'),
+            'username' => env('DB_USERNAME', 'mnemosine'),
+            'password' => env('DB_PASSWORD', 'mnemosine@'),
             'charset' => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix' => '',

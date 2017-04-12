@@ -18,6 +18,7 @@
                     { label: 'Login', route: '/login/create' },
                     { label: 'Nota Segura', route: '/note/create' },
                     { label: '', route: '', isLine: true },
+                    { label: 'RADIUS', route: '/radius/create' },
                     { label: 'Usuário', route: '/user/create' },
                     { label: 'Grupo', route: '/group/create' },
                     { label: '', route: '', isLine: true },

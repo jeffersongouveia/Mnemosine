@@ -21,7 +21,7 @@
                                 </div>
 
                                 <div class="control">
-                                    <textarea class="textarea" v-model="form.note">
+                                    <textarea class="textarea" v-model="form.note"></textarea>
                                 </div>
                             </div>
                         </div>
