@@ -21,7 +21,8 @@
 
         <div>
             <div class="item-details">
-                <vaults></vaults>
+                <!--<vaults></vaults>-->
+                <radius></radius>
             </div>
         </div>
     </columns>
@@ -31,40 +32,45 @@
     import Columns from '../base/Columns.vue';
 
     import Vaults from './Vaults.vue';
+    import Radius from './Radius.vue';
 
     export default {
-        components: {
-            'columns': Columns,
-            'vaults': Vaults
-        },
+        components: { Columns, Vaults, Radius },
 
         data() {
             return {
+                base: '/img/icons/',
+
                 configs: [
                     {
                         id: 1,
                         name: 'Cofres',
-                        icon: '/img/icons/vault.png'
+                        icon: this.getImgPath('vault')
                     },
                     {
                         id: 2,
                         name: 'Sincronização',
-                        icon: '/img/icons/cloud.png'
+                        icon: this.getImgPath('cloud')
                     },
                     {
                         id: 3,
-                        name: 'Usuários',
-                        icon: '/img/icons/user.png'
+                        name: 'RADIUS',
+                        icon: this.getImgPath('freeradius')
                     },
                     {
                         id: 4,
-                        name: 'Grupos',
-                        icon: '/img/icons/group.png'
+                        name: 'Usuários',
+                        icon: this.getImgPath('user')
                     },
                     {
                         id: 5,
+                        name: 'Grupos',
+                        icon: this.getImgPath('group')
+                    },
+                    {
+                        id: 6,
                         name: 'Geral',
-                        icon: '/img/icons/gears.png'
+                        icon: this.getImgPath('gears')
                     }
                 ],
 
@@ -73,6 +79,10 @@
         },
 
         methods: {
+            getImgPath(name) {
+                return '/img/icons/' + name + '.png';
+            },
+
             selectItem(item) {
                 this.selected = item.id;
             }

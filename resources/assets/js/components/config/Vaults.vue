@@ -1,47 +1,40 @@
 <template>
-    <div class="item-details">
-        <section class="header">
-            <label class="title">Cofres</label>
-        </section>
+    <config-layout name="Cofres">
+        <div class="control" v-for="vault in getVaults">
+            <div class="show-options">
+                <!-- TODO: emitir um alerta ao tentar editar outro cofre sem salvar o atual -->
+                <input type="text" class="vault input is-disabled"
+                       :id="vault.id" :value="vault.name" @keyup.enter="disableEdit(vault.id)">
 
-        <section class="content">
-            <div class="control" v-for="vault in getVaults">
-                <div class="show-options">
-                    <!-- TODO: emitir um alerta ao tentar editar outro cofre sem salvar o atual -->
-                    <input type="text" class="vault input is-disabled"
-                           :id="vault.id" :value="vault.name" @keyup.enter="disableEdit(vault.id)">
-
-                    <!-- TODO: os botões aparecem muito afastados do input -->
-                    <div class="options">
-                        <button class="button is-small" @click="enableEdit(vault.id)">
+                <!-- TODO: os botões aparecem muito afastados do input -->
+                <div class="options">
+                    <button class="button is-small" @click="enableEdit(vault.id)">
                             <span class="icon">
                                 <i class="fa fa-pencil-square-o"></i>
                             </span>
-                        </button>
+                    </button>
 
-                        <button class="button is-small">
+                    <button class="button is-small">
                             <span class="icon">
                                 <i class="fa fa-minus-circle"></i>
                             </span>
-                        </button>
-                    </div>
+                    </button>
                 </div>
             </div>
+        </div>
 
-            <users-box></users-box>
-        </section>
-    </div>
+        <users-box></users-box>
+    </config-layout>
 </template>
 
 <script>
     import Vaults from '../../models/Vaults';
 
+    import ConfigLayout from './ConfigLayout.vue';
     import UsersBox from '../base/UsersBox.vue';
 
     export default {
-        components: {
-            'users-box': UsersBox
-        },
+        components: { UsersBox, ConfigLayout },
 
         data() {
             return {

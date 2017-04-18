@@ -13,8 +13,8 @@
             </section>
 
             <footer class="modal-card-foot">
-                <button class="button is-danger" @click="hideModal" autofocus>Cancelar</button>
-                <button class="button is-success" @click="confirm">Tenho certeza</button>
+                <button class="button is-success" @click="hideModal" autofocus>Cancelar</button>
+                <button class="button is-danger" @click="confirm">Tenho certeza</button>
             </footer>
         </div>
     </div>

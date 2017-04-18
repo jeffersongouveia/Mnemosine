@@ -32,6 +32,9 @@ export default class Model {
 
             return this.data.sort(function(a, b) {
                 switch(sort) {
+                    case 'username':
+                        return a.username.toLowerCase() > b.username.toLowerCase();
+                        break;
                     case 'name':
                         return a.name.toLowerCase() > b.name.toLowerCase();
                         break;
@@ -51,7 +54,6 @@ export default class Model {
             });
         }
 
-        //caso o array esteja vazio apenas o retona
         return this.data;
     }
 
@@ -68,7 +70,8 @@ export default class Model {
     remove(item) {
         for(let i = 0; i < this.data.length; i++) {
             if(this.data[i].id == item.id) {
-                delete this.data[i];
+                this.data.splice(i, 1);
+
                 break;
             }
         }

@@ -31,7 +31,7 @@
                                 </div>
 
                                 <div class="control">
-                                    <input type="password" class="input" v-model="form.password">
+                                    <input type="password" class="input" v-model="form.value">
                                 </div>
                             </div>
                         </div>
@@ -75,7 +75,7 @@
             return {
                 form: new Form({
                     username: '',
-                    password: '',
+                    value: '',
                     strength: ''
                 })
             }
@@ -83,7 +83,7 @@
 
         methods: {
 			loadPassword(generatedPassword) {
-                this.form.password = generatedPassword;
+                this.form.value = generatedPassword;
             },
 
             loadStrength(strength) {

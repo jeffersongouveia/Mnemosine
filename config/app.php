@@ -25,7 +25,7 @@ return [
     |
     */
 
-    'env' => env('APP_ENV', 'production'),
+    'env' => env('APP_ENV', 'development'),
 
     /*
     |--------------------------------------------------------------------------
@@ -176,7 +176,7 @@ return [
         Mnemosine\Providers\AuthServiceProvider::class,
         // Mnemosine\Providers\BroadcastServiceProvider::class,
         Mnemosine\Providers\EventServiceProvider::class,
-        Mnemosine\Providers\RouteServiceProvider::class
+        Mnemosine\Providers\RouteServiceProvider::class,
     ],
 
     /*
