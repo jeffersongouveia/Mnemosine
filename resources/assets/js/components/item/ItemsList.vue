@@ -16,14 +16,19 @@
                         :class="{ 'selected': selected == item.id }" :id="'li-item-' + item.id">
                         <div class="line">
                             <figure class="image is-32x32">
-                                <img :src="item.icon" alt="Ícone do Login">
+                                <img v-if="isEquipment(item)" src="/img/icons/mikrotik.png" alt="Ícone do Login">
+                                <img v-else :src="item.icon" alt="Ícone do Login">
                             </figure>
 
                             <div class="item-content">
-                                <h4><strong>{{ item.name }}</strong></h4>
+                                <h4>
+                                    <strong v-if="!isEquipment(item)">{{ item.name }}</strong>
+                                    <strong v-else>{{ item.shortname }}</strong>
+                                </h4>
 
                                 <small v-if="isLogin(item)">{{ item.username }}</small>
-                                <small v-else>{{ item.note | resume }}</small>
+                                <small v-else-if="isNote(item)">{{ item.note | resume }}</small>
+                                <small v-else-if="isEquipment(item)">{{ item.nasname }}</small>
                             </div>
                         </div>
                     </li>
@@ -52,14 +57,18 @@
 		props: {
 			items: {
 				required: true
-			}
+			},
+
+            sortType: {
+			    required: false,
+                default: 'name'
+            }
 		},
 
 		data() {
 			return {
 				selected: 0,
-                itemSelected: {},
-                sortType: 'name'
+                itemSelected: {}
 			}
 		},
 
@@ -76,6 +85,14 @@
 		methods: {
             isLogin(item) {
                 return typeof item['username'] !== 'undefined';
+            },
+
+            isNote(item) {
+                return typeof item['note'] !== 'undefined';
+            },
+
+            isEquipment(item) {
+                return typeof item['shortname'] !== 'undefined';
             },
 
 			selectItem(item) {

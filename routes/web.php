@@ -23,6 +23,7 @@ Route::get('/api/favorites', function() {
 
 
 Route::resource('/api/vaults', 'VaultsController');
+Route::resource('/api/equipments', 'EquipmentsController');
 Route::resource('/api/logins', 'LoginsController');
 Route::resource('/api/notes', 'NotesController');
 

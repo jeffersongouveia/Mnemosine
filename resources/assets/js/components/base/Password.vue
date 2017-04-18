@@ -97,32 +97,7 @@
             },
 
             checkPassword() {
-                let score = 0;
-                if (!this.password)
-                    return score;
-
-                // award every unique letter until 5 repetitions
-                let letters = {};
-                for (let i=0; i<this.password.length; i++) {
-                    letters[this.password[i]] = (letters[this.password[i]] || 0) + 1;
-                    score += 5.0 / letters[this.password[i]];
-                }
-
-                // bonus points for mixing it up
-                let variations = {
-                    digits: /\d/.test(this.password),
-                    lower: /[a-z]/.test(this.password),
-                    upper: /[A-Z]/.test(this.password),
-                    nonWords: /\W/.test(this.password),
-                };
-
-                let variationCount = 0;
-                for (let check in variations) {
-                    variationCount += (variations[check] == true) ? 1 : 0;
-                }
-                score += (variationCount - 1) * 10;
-
-                this.strength = parseInt(score);
+                this.strength = this.passwordGenerator.strength(this.password);
             }
         }
     }

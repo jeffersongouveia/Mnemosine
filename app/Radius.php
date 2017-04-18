@@ -8,7 +8,7 @@ class Radius extends Model
 {
     protected $connection = 'mysql_radius';
     protected $table = 'radcheck';
-    protected $fillable = ['id', 'username', 'attribute', 'op', 'value'];
+    protected $fillable = ['username', 'attribute', 'op', 'value'];
 
     public $timestamps = false;
 }

@@ -7,6 +7,10 @@ export default new VueRouter({
            component: require('./components/item/AllItems.vue')
        },
        {
+           path: '/equipments',
+           component: require('./components/equipments/Equipments.vue')
+       },
+       {
            path: '/logins',
            component: require('./components/login/Logins.vue')
        },

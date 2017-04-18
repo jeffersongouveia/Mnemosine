@@ -2,12 +2,19 @@
 	<div class="item-details" v-if="item.id">
 		<section class="header">
             <figure class="image is-32x32">
-                <img :src="item.icon" alt="Ícone do item">
+                <img v-if="isEquipment(item)" src="/img/icons/mikrotik.png" alt="Ícone do Login">
+                <img v-else :src="item.icon" alt="Ícone do Login">
             </figure>
 
             <div class="control is-horizontal">
-                <span v-if="!isEditable" class="title">{{ item.name }}</span>
-                <input v-else id="name" :value="item.name" type="text" class="input">
+                <div v-if="isEquipment(item)">
+                    <span v-if="!isEditable" class="title">{{ item.shortname }}</span>
+                    <input v-else id="shortname" :value="item.shortname" type="text" class="input">
+                </div>
+                <div v-else>
+                    <span v-if="!isEditable" class="title">{{ item.name }}</span>
+                    <input v-else id="name" :value="item.name" type="text" class="input">
+                </div>
             </div>
 
             <div class="hold-on-right">
@@ -22,10 +29,11 @@
 		</section>
 
 		<section class="content">
-			<login-details v-if="item.username" :login="item" :enable-input="isEditable"></login-details>
-            <note-details v-else :note="item" :enable-input="isEditable"></note-details>
+			<login-details v-if="isLogin(item)" :login="item" :enable-input="isEditable"></login-details>
+            <note-details v-else-if="isNote(item)" :note="item" :enable-input="isEditable"></note-details>
+            <equipment-details v-else-if="isEquipment(item)" :equipment="item" :enable-input="isEditable"></equipment-details>
 
-			<section class="content-footer">
+			<section class="content-footer" v-show="!isEquipment(item)">
                 <div class="container">
                     <div class="line">
                         <label class="label">Última alteração</label>
@@ -80,14 +88,12 @@
 <script>
     import LoginDetails from '../login/LoginDetails.vue';
     import NoteDetails from '../note/NoteDetails.vue';
+    import EquipmentDetails from '../equipments/EquipmentDetails.vue';
+
     import ModalConfirmation from '../base/ModalConfirmation.vue';
 
 	export default {
-		components: {
-            'login-details': LoginDetails,
-            'note-details': NoteDetails,
-            'modal-confirmation': ModalConfirmation
-		},
+		components: { LoginDetails, NoteDetails, EquipmentDetails, ModalConfirmation },
 
 		props: {
 			item: {
@@ -117,6 +123,18 @@
         },
 
         methods: {
+            isLogin(item) {
+                return typeof item['username'] !== 'undefined';
+            },
+
+            isNote(item) {
+                return typeof item['note'] !== 'undefined';
+            },
+
+            isEquipment(item) {
+                return typeof item['shortname'] !== 'undefined';
+            },
+
             toogleEditable() {
                 this.isEditable = !this.isEditable;
             },

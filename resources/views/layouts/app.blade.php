@@ -38,6 +38,9 @@
 
                     <p class="menu-label">Categorias</p>
                     <li>
+                        <router-link to="/equipments">Equipamentos</router-link>
+                    </li>
+                    <li>
                         <router-link to="/logins" exact>Logins</router-link>
                     </li>
                     <li>

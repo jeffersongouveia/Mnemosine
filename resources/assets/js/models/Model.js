@@ -35,6 +35,9 @@ export default class Model {
                     case 'username':
                         return a.username.toLowerCase() > b.username.toLowerCase();
                         break;
+                    case 'shortname':
+                        return a.shortname.toLowerCase() > b.shortname.toLowerCase();
+                        break;
                     case 'name':
                         return a.name.toLowerCase() > b.name.toLowerCase();
                         break;
