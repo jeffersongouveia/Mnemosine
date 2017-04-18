@@ -21,8 +21,8 @@
 
         <div>
             <div class="item-details">
-                <!--<vaults></vaults>-->
-                <radius></radius>
+                <vaults v-show="canIShow(1)"></vaults>
+                <radius v-show="canIShow(3)"></radius>
             </div>
         </div>
     </columns>
@@ -85,6 +85,10 @@
 
             selectItem(item) {
                 this.selected = item.id;
+            },
+
+            canIShow(id) {
+                return this.selected == id;
             }
         }
     }
