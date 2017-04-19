@@ -15,6 +15,7 @@
         data() {
             return {
                 menu_options: [
+                    { label: 'Equipamento', route: '/equipment/create' },
                     { label: 'Login', route: '/login/create' },
                     { label: 'Nota Segura', route: '/note/create' },
                     { label: '', route: '', isLine: true },

@@ -40,4 +40,10 @@ class EquipmentsController extends Controller
 
         $equipment->save();
     }
+
+    public function destroy($id) {
+        $equipment = Equipment::find($id);
+
+        $equipment->delete();
+    }
 }

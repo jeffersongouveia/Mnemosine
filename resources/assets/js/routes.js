@@ -6,6 +6,7 @@ export default new VueRouter({
            path: '/all',
            component: require('./components/item/AllItems.vue')
        },
+       //-----------------------------------------------------------------
        {
            path: '/equipments',
            component: require('./components/equipments/Equipments.vue')
@@ -22,10 +23,10 @@ export default new VueRouter({
            path: '/notes',
            component: require('./components/note/Notes.vue')
        },
-
+       //-----------------------------------------------------------------
        {
-           path: '/radius/create',
-           component: require('./components/radius/RadiusCreate.vue')
+           path: '/equipment/create',
+           component: require('./components/equipments/EquipmentCreate.vue')
        },
        {
            path: '/login/create',
@@ -36,6 +37,10 @@ export default new VueRouter({
            component: require('./components/note/NoteCreate.vue')
        },
        {
+           path: '/radius/create',
+           component: require('./components/radius/RadiusCreate.vue')
+       },
+       {
            path: '/user/create',
            component: require('./components/UserCreate.vue')
        },
@@ -43,7 +48,7 @@ export default new VueRouter({
            path: '/group/create',
            component: require('./components/GroupCreate.vue')
        },
-
+       //-----------------------------------------------------------------
        {
            path: '/configurations',
            component: require('./components/config/ConfigsList.vue')

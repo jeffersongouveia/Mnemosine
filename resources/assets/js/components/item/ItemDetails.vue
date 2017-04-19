@@ -80,7 +80,7 @@
         </section>
 
         <modal-confirmation :show="isToShow" @hideModal="toogleModal" @confirm="moveToTrash">
-            Tem certeza que deseja mover pra lixeira o item <span class="alert-text">{{ item.name }}</span>?
+            Tem certeza que deseja mover pra lixeira o item <span class="alert-text">{{ getName }}</span>?
         </modal-confirmation>
 	</div>
 </template>
@@ -135,6 +135,10 @@
                         return this.urlEquipment;
                     }
                 }
+            },
+
+            getName() {
+                return this.isEquipment() ? this.item.shortname : this.item.name;
             }
         },
 
