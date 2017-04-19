@@ -22,7 +22,6 @@ body {
   border-width: 1px 1px 1px 0;
 
   left: 1em;
-  overflow-y: scroll;
 }
 
 .menu-center {
@@ -113,7 +112,7 @@ body {
 }
 
 .scrollable {
-  overflow-y: scroll;
+  overflow-y: auto;
   height: 100%;
 }
 
@@ -172,5 +171,5 @@ body {
 /*********************/
 
 #app {
-  height: 200%;
+  height: 102%;
 }

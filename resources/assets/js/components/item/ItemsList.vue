@@ -10,10 +10,10 @@
 
             <sort :quantity="quantity" @selected="changeSortType"></sort>
 
-            <div class="scrollable">
+            <div id="list-items" class="scrollable">
                 <ul class="no-padding-parent">
                     <li class="item-list" v-for="item in loadItens" @click="selectItem(item)"
-                        :class="{ 'selected': selected == item.id }" :id="'li-item-' + item.id">
+                        :class="{ 'selected': selected === item.id }" :id="'li-item-' + item.id">
                         <div class="line">
                             <figure class="image is-32x32">
                                 <img v-if="isEquipment(item)" src="/img/icons/mikrotik.png" alt="Ícone do Login">
@@ -105,7 +105,7 @@
             },
 
             updateFavorite(item) {
-                if(this.$route.path == '/favorites') {
+                if(this.$route.path === '/favorites') {
                     this.removeItem(item);
                 }
             },
@@ -136,3 +136,9 @@
 		}
 	}
 </script>
+
+<style lang="css">
+    #list-items {
+        height: 85%;
+    }
+</style>

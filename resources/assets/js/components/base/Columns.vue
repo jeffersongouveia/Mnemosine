@@ -1,5 +1,5 @@
 <template>
-    <div class="columns">
+    <div class="columns" :style="'height: ' + height + 'px'">
         <div class="column is-3 show-grid">
             <slot name="options"></slot>
         </div>
@@ -11,11 +11,15 @@
 </template>
 
 <script>
-    export default {}
-</script>
+    export default {
+        data() {
+            return {
+                height: 0
+            }
+        },
 
-<style lang="css">
-    .columns {
-        height: 200%;
+        beforeUpdate() {
+            this.height = document.documentElement.clientHeight + 12;
+        }
     }
-</style>
+</script>

@@ -54,11 +54,11 @@ return [
 
         'mysql' => [
             'driver' => 'mysql',
-            'host' => env('DB_HOST', '172.30.0.190'),
+            'host' => env('DB_HOST', 'localhost'),
             'port' => env('DB_PORT', '3306'),
             'database' => env('DB_DATABASE', 'mnemosine'),
-            'username' => env('DB_USERNAME', 'mnemosine'),
-            'password' => env('DB_PASSWORD', 'mnemosine@'),
+            'username' => env('DB_USERNAME', 'root'),
+            'password' => env('DB_PASSWORD', 'root@'),
             'charset' => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix' => '',
@@ -68,11 +68,11 @@ return [
 
         'mysql_radius' => [
             'driver' => 'mysql',
-            'host' => env('DB_HOST', '172.30.0.190'),
+            'host' => env('DB_HOST', 'localhost'),
             'port' => env('DB_PORT', '3306'),
             'database' => env('DB_RADIUS_DATABASE', 'radius'),
-            'username' => env('DB_USERNAME', 'mnemosine'),
-            'password' => env('DB_PASSWORD', 'mnemosine@'),
+            'username' => env('DB_USERNAME', 'root'),
+            'password' => env('DB_PASSWORD', 'root@'),
             'charset' => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix' => '',
