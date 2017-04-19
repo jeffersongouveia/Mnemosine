@@ -5,7 +5,7 @@
                 <div class="line">
                     <label class="label">Nota</label>
 
-                    <textarea class="info textarea" :class="{'is-disabled': !enableInput}" cols="5" rows="100">{{ note.note }}</textarea>
+                    <textarea id="note" class="info textarea" :class="{'is-disabled': !enableInput}" cols="5" rows="100">{{ note.note }}</textarea>
                 </div>
             </div>
         </section>
@@ -43,6 +43,7 @@
                         {
                             label: 'Nota',
                             value: this.note.note,
+                            prop: 'note',
                             enableCopy: false
                         }
                     ],

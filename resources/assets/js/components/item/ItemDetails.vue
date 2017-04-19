@@ -2,12 +2,12 @@
 	<div class="item-details" v-if="item.id">
 		<section class="header">
             <figure class="image is-32x32">
-                <img v-if="isEquipment(item)" src="/img/icons/mikrotik.png" alt="Ícone do Login">
+                <img v-if="isEquipment()" src="/img/icons/mikrotik.png" alt="Ícone do Login">
                 <img v-else :src="item.icon" alt="Ícone do Login">
             </figure>
 
             <div class="control is-horizontal">
-                <div v-if="isEquipment(item)">
+                <div v-if="isEquipment()">
                     <span v-if="!isEditable" class="title">{{ item.shortname }}</span>
                     <input v-else id="shortname" :value="item.shortname" type="text" class="input">
                 </div>
@@ -29,11 +29,11 @@
 		</section>
 
 		<section class="content">
-			<login-details v-if="isLogin(item)" :login="item" :enable-input="isEditable"></login-details>
-            <note-details v-else-if="isNote(item)" :note="item" :enable-input="isEditable"></note-details>
-            <equipment-details v-else-if="isEquipment(item)" :equipment="item" :enable-input="isEditable"></equipment-details>
+			<login-details v-if="isLogin()" :login="item" :enable-input="isEditable"></login-details>
+            <note-details v-else-if="isNote()" :note="item" :enable-input="isEditable"></note-details>
+            <equipment-details v-else-if="isEquipment()" :equipment="item" :enable-input="isEditable"></equipment-details>
 
-			<section class="content-footer" v-show="!isEquipment(item)">
+			<section class="content-footer" v-show="!isEquipment()">
                 <div class="container">
                     <div class="line">
                         <label class="label">Última alteração</label>
@@ -107,32 +107,48 @@
                 isEditable: false,
                 isToShow: false,
 
-                props: ['name', 'username', 'password', 'strength', 'ip', 'dns', 'equipment'],
+                props: [
+                    //login
+                    'name', 'username', 'password', 'strength', 'ip', 'dns', 'equipment',
+                    //note
+                    'note',
+                    //equipment
+                    'nasname', 'shortname', 'type', 'ports', 'secret', 'description'
+                ],
                 fields: {},
                 form: {},
 
                 urlLogin: '/api/logins/',
-                urlNote: '/api/notes/'
+                urlNote: '/api/notes/',
+                urlEquipment: '/api/equipments/'
             }
         },
 
         computed: {
             getUrl() {
-                return this.isLogin() ? this.urlLogin : this.urlNote;
+                if(this.isLogin()) {
+                    return this.urlLogin;
+                } else {
+                    if(this.isNote()) {
+                        return this.urlNote;
+                    } else {
+                        return this.urlEquipment;
+                    }
+                }
             }
         },
 
         methods: {
-            isLogin(item) {
-                return typeof item['username'] !== 'undefined';
+            isLogin() {
+                return typeof this.item['username'] !== 'undefined';
             },
 
-            isNote(item) {
-                return typeof item['note'] !== 'undefined';
+            isNote() {
+                return typeof this.item['note'] !== 'undefined';
             },
 
-            isEquipment(item) {
-                return typeof item['shortname'] !== 'undefined';
+            isEquipment() {
+                return typeof this.item['shortname'] !== 'undefined';
             },
 
             toogleEditable() {
@@ -178,8 +194,11 @@
                 }
 
                 this.fields['id'] = this.item['id'];
-                this.fields['id_vault'] = document.getElementById('vaults').value;
-                this.fields['favorite'] = this.isFavorite();
+
+                if(!this.isEquipment()) {
+                    this.fields['id_vault'] = document.getElementById('vaults').value;
+                    this.fields['favorite'] = this.isFavorite();
+                }
             },
 
             //após editar um item pega os novos dados e atualiza o item passado via propriedade
@@ -194,6 +213,8 @@
                 this.loadData();
                 //cria o form com os valores dos inputs
                 this.form = new Form(this.fields);
+
+                console.log(this.form);
 
                 this.form.put(this.getUrl + this.form.id).then(response => {
                     //ao recarregar os campos do item o formulário já desabilita a edição
