@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 {{-- TODO: ajustar linhas da grade, ao recarregar ela sobe e desce --}}
-{{-- TODO: ao logar fazer com que alguma listagem já venha pré-selecionada --}}
 @section('content')
     <nav class="nav has-shadow">
         <div class="nav-left">

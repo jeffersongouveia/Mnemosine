@@ -12,6 +12,7 @@ class EquipmentsController extends Controller
     }
 
     public function store(EquipmentRequest $request) {
+        // TODO: trocar a forma de captura do $request dos outros Controllers pela dessa abaixo
         $equipment = new Equipment($request->all());
         $equipment->save();
     }

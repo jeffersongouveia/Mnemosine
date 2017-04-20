@@ -1,15 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
-    <section class="hero is-default is-fullheight has-text-centered">
+    <section class="hero is-default is-fullheight">
         <div class="hero-body">
             <div class="container">
-                <h1 class="title">Mnemosine</h1>
+                <h1 class="title has-text-centered">Mnemosine</h1>
 
                 <div class="container">
                     <div class="columns">
                         <div class="column"></div>
 
+                        {{-- TODO: verificar porque essa budega esta tudo colado sendo que a class field deveria cuidar disso >:-( --}}
                         <div class="column is-3">
                             <form method="post" action="{{ route('login') }}">
                                 {{ csrf_field() }}
@@ -40,7 +41,7 @@
                                     </p>
 
                                     @if($errors->has('password'))
-                                        <p class="help-is-danger">
+                                        <p class="help is-danger">
                                             {{ $errors->first('password') }}
                                         </p>
                                     @endif

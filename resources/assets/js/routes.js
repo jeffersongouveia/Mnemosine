@@ -52,6 +52,11 @@ export default new VueRouter({
        {
            path: '/configurations',
            component: require('./components/config/ConfigsList.vue')
+       },
+       //-----------------------------------------------------------------
+       {
+           path: '*',
+           redirect: '/all'
        }
    ]
 });

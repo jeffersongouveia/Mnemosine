@@ -7,6 +7,7 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index');
 
+// TODO: blindar as api de todos os acessos que não sejam do próprio sistema
 Route::get('/api/all', function() {
     $logins = Login::where('deleted', false)->get();
     $notes = Note::where('deleted', false)->get();
@@ -20,7 +21,6 @@ Route::get('/api/favorites', function() {
 
     return array($logins, $notes);
 });
-
 
 Route::resource('/api/vaults', 'VaultsController');
 Route::resource('/api/equipments', 'EquipmentsController');
