@@ -6410,8 +6410,8 @@ body {
 }
 
 .show-grid {
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 1.5em;
+  padding-bottom: 1.5em;
   border: 1px solid rgba(0, 0, 0, 0.5);
   border-width: 1px 1px 1px 0;
   left: 1em;
