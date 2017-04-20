@@ -2,8 +2,8 @@
 
 namespace Mnemosine\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Mnemosine\Equipment;
+use Mnemosine\Http\Requests\EquipmentRequest;
 
 class EquipmentsController extends Controller
 {
@@ -11,21 +11,12 @@ class EquipmentsController extends Controller
         return Equipment::all();
     }
 
-    public function store(Request $request) {
-        $equipment = new Equipment();
-
-        $fields = [
-            'nasname', 'shortname', 'type', 'ports', 'secret', 'description'
-        ];
-
-        foreach($fields as $field) {
-            $equipment[$field] = $request[$field];
-        }
-
+    public function store(EquipmentRequest $request) {
+        $equipment = new Equipment($request->all());
         $equipment->save();
     }
 
-    public function update(Request $request) {
+    public function update(EquipmentRequest $request) {
         $equipment = Equipment::find($request->id);
 
         $fields = [

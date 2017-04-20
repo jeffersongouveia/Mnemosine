@@ -12,17 +12,6 @@
 */
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
-$factory->define(Mnemosine\User::class, function (Faker\Generator $faker) {
-    static $password;
-
-    return [
-        'name' => $faker->name,
-        'email' => $faker->unique()->safeEmail,
-        'password' => $password ?: $password = bcrypt('secret'),
-        'deleted' => false,
-        'remember_token' => str_random(10)
-    ];
-});
 
 $factory->define(Mnemosine\Vault::class, function(Faker\Generator $faker) {
    return [
@@ -32,9 +21,11 @@ $factory->define(Mnemosine\Vault::class, function(Faker\Generator $faker) {
 });
 
 $factory->define(Mnemosine\Login::class, function(Faker\Generator $faker) {
+    $icons = ['android', 'apple', 'chrome', 'firefox', 'itunes', 'java', 'linux', 'safari', 'spotify'];
+
     return [
         'id_vault' => random_int(1, 3),
-        'icon' => '',
+        'icon' => 'img/icons/' . $icons[random_int(0, 8)] . '.png',
         'name' => $faker->word,
         'username' => $faker->userName,
         'password' => $faker->password(6, 21),
@@ -50,7 +41,7 @@ $factory->define(Mnemosine\Login::class, function(Faker\Generator $faker) {
 $factory->define(Mnemosine\Note::class, function(Faker\Generator $faker) {
     return [
         'id_vault' => random_int(1, 3),
-        'icon' => '',
+        'icon' => 'img/icons/text-lines.png',
         'name' => $faker->word,
         'note' => $faker->paragraphs(3, true),
         'favorite' => false,
