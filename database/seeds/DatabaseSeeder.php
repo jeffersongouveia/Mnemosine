@@ -11,9 +11,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
-        $vaults = factory(Mnemosine\Vault::class, 3)->create();
-        $logins = factory(Mnemosine\Login::class, 10)->create();
-        $notes = factory(Mnemosine\Note::class, 5)->create();
+        $this->call(UsersTableSeeder::class);
+
+        // TODO: remover as linhas do factory antes de passar pra production
+        factory(Mnemosine\Vault::class, 3)->create();
+        factory(Mnemosine\Login::class, 10)->create();
+        factory(Mnemosine\Note::class, 5)->create();
     }
 }
