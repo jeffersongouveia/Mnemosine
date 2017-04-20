@@ -18,5 +18,29 @@
     </div>
 
     <script src="js/app.js"></script>
+    <script>
+        function refreshHeightOfContent() {
+            let content = document.getElementById('content');
+
+            if(content) {
+                let height = document.documentElement.clientHeight + 12;
+                content.style.height = height + 'px';
+            }
+        }
+
+        let html = document.getElementsByTagName('body')[0];
+
+        window.onhashchange = function() {
+            refreshHeightOfContent();
+        };
+
+        html.onload = function() {
+            refreshHeightOfContent();
+        };
+
+        html.onresize = function() {
+            refreshHeightOfContent();
+        };
+    </script>
 </body>
 </html>

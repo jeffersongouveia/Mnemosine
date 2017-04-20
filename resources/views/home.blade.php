@@ -1,6 +1,5 @@
 @extends('layouts.app')
 
-{{-- TODO: ajustar linhas da grade, ao recarregar ela sobe e desce --}}
 @section('content')
     <nav class="nav has-shadow">
         <div class="nav-left">
