@@ -3,9 +3,9 @@
 use Mnemosine\Login;
 use Mnemosine\Note;
 
-Route::get('/', function() {
-  return view('home');
-});
+Auth::routes();
+
+Route::get('/', 'HomeController@index');
 
 Route::get('/api/all', function() {
     $logins = Login::where('deleted', false)->get();
