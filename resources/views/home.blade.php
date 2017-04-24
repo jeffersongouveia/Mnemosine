@@ -18,7 +18,7 @@
         </div>
     </nav>
 
-    <div class="columns">
+    <div id="side-menu" class="columns">
         <div class="column is-2 show-grid">
             <aside class="menu menu-center">
                 <ul class="menu-list">

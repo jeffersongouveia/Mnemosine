@@ -19,27 +19,30 @@
 
     <script src="js/app.js"></script>
     <script>
-        function refreshHeightOfContent() {
-            let content = document.getElementById('content');
+        function refreshHeight(id) {
+            let el = document.getElementById(id);
 
-            if(content) {
+            if(el) {
                 let height = document.documentElement.clientHeight + 12;
-                content.style.height = height + 'px';
+                el.style.height = height + 'px';
             }
         }
 
         let html = document.getElementsByTagName('body')[0];
 
         window.onhashchange = function() {
-            refreshHeightOfContent();
+            refreshHeight('content');
+            refreshHeight('side-menu');
         };
 
         html.onload = function() {
-            refreshHeightOfContent();
+            refreshHeight('content');
+            refreshHeight('side-menu');
         };
 
         html.onresize = function() {
-            refreshHeightOfContent();
+            refreshHeight('content');
+            refreshHeight('side-menu');
         };
     </script>
 </body>
