@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('username', 30)->unique();
             $table->string('password', 70);
 
-            $table->boolean('deleted');
+            $table->boolean('deleted')->default(false);
             $table->rememberToken();
             $table->timestamps();
         });

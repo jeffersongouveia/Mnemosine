@@ -26,9 +26,9 @@ class CreateLoginsTable extends Migration
             $table->ipAddress('ip');
             $table->string('dns', 50);
             $table->string('equipment', 30);
-            $table->boolean('favorite');
+            $table->boolean('favorite')->default(false);
 
-            $table->boolean('deleted');
+            $table->boolean('deleted')->default(false);
             $table->timestamps();
 
             $table->foreign('id_vault')->references('id')->on('vaults');

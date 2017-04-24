@@ -19,7 +19,7 @@ class CreateUserLoginsTable extends Migration
             $table->integer('id_login')->unsigned();
             $table->integer('id_vault')->unsigned();
 
-            $table->boolean('deleted');
+            $table->boolean('deleted')->default(false);
             $table->timestamps();
 
             $table->foreign('id_user')->references('id')->on('users');

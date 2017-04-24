@@ -21,9 +21,9 @@ class CreateNotesTable extends Migration
 
             $table->string('name', 50);
             $table->text('note');
-            $table->boolean('favorite');
+            $table->boolean('favorite')->default(false);
 
-            $table->boolean('deleted');
+            $table->boolean('deleted')->default(false);
             $table->timestamps();
 
             $table->foreign('id_vault')->references('id')->on('vaults');

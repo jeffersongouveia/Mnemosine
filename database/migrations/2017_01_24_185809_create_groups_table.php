@@ -18,7 +18,7 @@ class CreateGroupsTable extends Migration
 
             $table->string('name', 50);
 
-            $table->boolean('deleted');
+            $table->boolean('deleted')->default(false);
             $table->timestamps();
         });
     }

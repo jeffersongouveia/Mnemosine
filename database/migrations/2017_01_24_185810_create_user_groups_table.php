@@ -18,7 +18,7 @@ class CreateUserGroupsTable extends Migration
             $table->integer('id_user')->unsigned();
             $table->integer('id_group')->unsigned();
 
-            $table->boolean('deleted');
+            $table->boolean('deleted')->default(false);
             $table->timestamps();
 
             $table->foreign('id_user')->references('id')->on('users');

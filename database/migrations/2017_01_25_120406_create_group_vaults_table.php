@@ -18,7 +18,7 @@ class CreateGroupVaultsTable extends Migration
             $table->integer('id_group')->unsigned();
             $table->integer('id_vault')->unsigned();
 
-            $table->boolean('deleted');
+            $table->boolean('deleted')->default(false);
             $table->timestamps();
 
             $table->foreign('id_group')->references('id')->on('groups');
