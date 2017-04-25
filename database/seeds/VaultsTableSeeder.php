@@ -1,9 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use \Illuminate\Support\Facades\DB;
 
-class UsersTableSeeder extends Seeder
+class VaultsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,9 +11,8 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->insert([
-            'username' => 'admin',
-            'password' => bcrypt('admin'),
+        DB::table('vaults')->insert([
+            'name' => 'Padrão',
             'deleted' => false,
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s')
