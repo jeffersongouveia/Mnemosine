@@ -23,11 +23,7 @@
             <aside class="menu menu-center">
                 <ul class="menu-list">
                     <li>
-                        <div class="select is-fullwidth">
-                            <select id="vaults" title="Selecione um cofre para ver seus Logins e Notas Seguras">
-                                <option v-for="vault in getVaults" :value="vault.id" v-text="vault.name"></option>
-                            </select>
-                        </div>
+                        <vaults></vaults>
                     </li>
 
                     <li>
