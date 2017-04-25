@@ -50,7 +50,7 @@
                                 <div class="control">
                                     <label class="checkbox" v-for="user in getUsers">
                                         <input type="checkbox" name="users" v-model="form.users" :value="user.id">
-                                        {{ user.name }}
+                                        {{ user.username }}
                                     </label>
                                 </div>
                             </div>

@@ -1,7 +1,6 @@
 export default class Model {
     constructor(url) {
         this.data = [];
-
         this.url = url;
     }
 
@@ -20,6 +19,22 @@ export default class Model {
     }
 
     getData() {
+        return this.data;
+    }
+
+    getDataByVault(id) {
+        if(this.count() && this.data[0].id_vault) {
+            let items = [];
+
+            for(let i in this.data) {
+                if(this.data[i].id_vault == id) {
+                    items.push(this.data[i]);
+                }
+            }
+
+            return items;
+        }
+
         return this.data;
     }
 

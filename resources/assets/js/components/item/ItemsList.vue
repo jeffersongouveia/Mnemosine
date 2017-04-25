@@ -7,7 +7,7 @@
                     <i class="fa fa-search"></i>
                 </span>
             </div>
-
+            <!-- TODO: rever a numeração -->
             <sort :quantity="quantity" @selected="changeSortType"></sort>
 
             <div id="list-items" class="scrollable">
@@ -68,13 +68,15 @@
 		data() {
 			return {
 				selected: 0,
+                id_vault: 1,
                 itemSelected: {}
 			}
 		},
 
         computed: {
             loadItens() {
-                return this.items.sortBy(this.sortType);
+//                return this.items.sortBy(this.sortType);
+                return this.items.getDataByVault(this.id_vault);
             },
 
             quantity() {
@@ -93,6 +95,11 @@
 
             isEquipment(item) {
                 return typeof item['shortname'] !== 'undefined';
+            },
+
+            getIdVault() {
+                let vaults = document.getElementById('vaults');
+                this.id_vault = vaults ? vaults.value : 1;
             },
 
 			selectItem(item) {
@@ -129,16 +136,27 @@
             }
         },
 
+        created() {
+            this.getIdVault();
+        },
+
 		beforeUpdate() {
+            let component = this;
+
 			app.$on('selected', function(sort) {
 //				this.logins = this.items.sortBy(sort);
 			});
+
+            app.$on('changedVault', function() {
+                component.getIdVault();
+            });
 		}
 	}
 </script>
 
+<!-- TODO: ajustar scroll pois quando redimensiona alguns items ficam ocultos -->
 <style lang="css">
     #list-items {
-        height: 85%;
+        height: 82%;
     }
 </style>

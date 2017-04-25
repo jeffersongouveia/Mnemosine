@@ -218,8 +218,6 @@
                 //cria o form com os valores dos inputs
                 this.form = new Form(this.fields);
 
-                console.log(this.form);
-
                 this.form.put(this.getUrl + this.form.id).then(response => {
                     //ao recarregar os campos do item o formulário já desabilita a edição
                     this.reloadItem();

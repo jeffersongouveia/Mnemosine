@@ -10,7 +10,6 @@
                     <div class="columns">
                         <div class="column"></div>
 
-                        {{-- TODO: verificar porque essa budega esta tudo colado sendo que a class field deveria cuidar disso >:-( --}}
                         <div class="column is-3">
                             <form method="post" action="{{ route('login') }}">
                                 {{ csrf_field() }}

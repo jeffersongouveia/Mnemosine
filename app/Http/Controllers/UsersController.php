@@ -15,15 +15,8 @@ class UsersController extends Controller
     }
 
     public function store(Request $request) {
-        $user = new User();
-
-        $fields = ['name', 'email', 'password'];
-
-        foreach($fields as $field) {
-            $user[$field] = $request[$field];
-        }
-
-        $user->deleted = false;
+        $user = new User($request->all());
+        $user->password = bcrypt($request->password);
 
         $user->save();
 

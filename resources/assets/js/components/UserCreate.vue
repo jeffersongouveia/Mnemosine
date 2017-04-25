@@ -1,129 +1,107 @@
 <!-- TODO: adicionar um campo pra marcar que os mesmos dados devem ser usados pra criar um usuário no RADIUS -->
 <!-- TODO: adicionar um campo para caso o usuário queira dar outro username pro RADIUS que sera criado -->
 <template>
-    <div class="item-details">
-        <form method="post" @submit.prevent="onSubmit">
-            <section class="header">
-                <div class="control is-horizontal">
-                    <label class="title">Novo Usuário</label>
+    <create title="Novo Usuário" :data="data" @submit="onSubmit">
+        <div class="field is-horizontal">
+            <div class="field-label">
+                <help-tip>
+                    Permite que o usuário tenha acesso aos cofres que o grupo possui
+                </help-tip>
+
+                Grupos
+            </div>
+
+            <div class="field-body">
+                <div class="field">
+                    <div class="control">
+                        <label class="checkbox" v-for="group in getGroups">
+                            <input type="checkbox" name="groups" v-model="models.groups" :value="group.id">
+                            {{ group.name }}
+                        </label>
+                    </div>
                 </div>
-            </section>
+            </div>
+        </div>
 
-            <section class="content">
-                <section class="content-main">
-                    <div class="container">
-                        <div class="line">
-                            <div class="control is-horizontal">
-                                <div class="control-label">
-                                    <label class="label">Nome completo</label>
-                                </div>
+        <div class="field is-horizontal">
+            <div class="field-label">
+                <help-tip>
+                    Invés de dar acesso aos cofres do grupo, você pode definir diretamente quais os cofres que o usuário pode acessar
+                    selecionando-os
+                </help-tip>
 
-                                <div class="control">
-                                    <input type="text" class="input" v-model="form.name">
-                                </div>
-                            </div>
-                        </div>
+                Cofres
+            </div>
+
+            <div class="field-body">
+                <div class="field">
+                    <div class="control">
+                        <label class="checkbox" v-for="vault in getVaults">
+                            <input type="checkbox" name="vaults" v-model="models.vaults" :value="vault.id">
+                            {{ vault.name }}
+                        </label>
                     </div>
-
-                    <div class="container">
-                        <div class="line">
-                            <div class="control is-horizontal">
-                                <div class="control-label">
-                                    <label class="label">E-mail</label>
-                                </div>
-
-                                <div class="control">
-                                    <input type="email" class="input" v-model="form.email">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="container">
-                        <div class="line">
-                            <div class="control is-horizontal">
-                                <div class="control-label">
-                                    <label class="label">Senha</label>
-                                </div>
-
-                                <div class="control">
-                                    <input type="password" class="input" v-model="form.password">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="container">
-                        <div class="line">
-                            <div class="control is-horizontal">
-                                <div class="control-label">
-                                    <label class="label">Grupos</label>
-                                </div>
-
-                                <div class="control">
-                                    <label class="checkbox" v-for="group in getGroups">
-                                        <input type="checkbox" name="groups" v-model="form.groups" :value="group.id">
-                                        {{ group.name }}
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="container">
-                        <div class="line">
-                            <div class="control is-horizontal">
-                                <div class="control-label">
-                                    <label class="label">Cofres</label>
-                                </div>
-
-                                <div class="control">
-                                    <label class="checkbox" v-for="vault in getVaults">
-                                        <input type="checkbox" name="vaults" v-model="form.vaults" :value="vault.id">
-                                        {{ vault.name }}
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <section class="content-body"></section>
-
-                <section class="content-footer">
-                    <button type="submit" class="button is-primary">Salvar</button>
-                </section>
-            </section>
-        </form>
-    </div>
+                </div>
+            </div>
+        </div>
+    </create>
 </template>
 
 <script>
     import Groups from '../models/Groups';
     import Vaults from '../models/Vaults';
 
+    import Create from './base/Create.vue';
+    import HelpTip from './utils/HelpTip.vue';
+
     export default {
+        components: { Create, HelpTip },
+
         data() {
             return {
                 groups: new Groups('/api/groups'),
                 vaults: new Vaults('/api/vaults'),
 
-                form: new Form({
-                    name: '',
-                    email: '',
-
-                    password: '',
-                    strength: '',
-
+                models: {
                     groups: [],
                     vaults: []
-                })
+                },
+
+                data: [
+                    {
+                        label: 'Usuário',
+                        prop: 'username',
+                        value: ''
+                    },
+                    {
+                        label: 'Senha',
+                        prop: 'password',
+                        value: '',
+                        type: 'password'
+                    },
+                    {
+                        label: '',
+                        prop: 'deleted',
+                        value: 'false'
+                    }
+                ]
             }
         },
 
         methods: {
-            onSubmit() {
-                this.form.post('/api/users').then(response => this.$router.push('/logins'));
+            isEmpty(v) {
+                return v.length === 0;
+            },
+
+            hasErrors() {
+                return this.isEmpty(this.form.username) || this.isEmpty(this.form.password) || this.isEmpty(this.form.groups) || this.isEmpty(this.form.vaults);
+            },
+
+            onSubmit(form) {
+                form.push('groups', this.models.groups);
+                form.push('vaults', this.models.vaults);
+
+                form.post('/api/users').then(response => this.$router.push('/logins'));
             }
         },
 
