@@ -13,13 +13,11 @@
 
             <section class="content">
                 <section class="content-main">
-                    <div class="container">
-                        <div class="line">
-                            <div class="control is-horizontal">
-                                <div class="control-label">
-                                    <label class="label">IP</label>
-                                </div>
+                    <div class="field is-horizontal">
+                        <div class="field-label">IP</div>
 
+                        <div class="field-body">
+                            <div class="field">
                                 <div class="control">
                                     <input type="text" class="input" v-model="form.nasname" placeholder="Adicione o IP de acesso ao dispositivo">
                                 </div>
@@ -27,13 +25,11 @@
                         </div>
                     </div>
 
-                    <div class="container">
-                        <div class="line">
-                            <div class="control is-horizontal">
-                                <div class="control-label">
-                                    <label class="label">Porta</label>
-                                </div>
+                    <div class="field is-horizontal">
+                        <div class="field-label">Porta</div>
 
+                        <div class="field-body">
+                            <div class="field">
                                 <div class="control">
                                     <input type="text" class="input" v-model="form.ports" placeholder="Porta de acesso do RADIUS">
                                 </div>
@@ -41,13 +37,11 @@
                         </div>
                     </div>
 
-                    <div class="container">
-                        <div class="line">
-                            <div class="control is-horizontal">
-                                <div class="control-label">
-                                    <label class="label">Senha</label>
-                                </div>
+                    <div class="field is-horizontal">
+                        <div class="field-label">Senha</div>
 
+                        <div class="field-body">
+                            <div class="field">
                                 <div class="control">
                                     <input type="text" class="input" v-model="form.secret" placeholder="Adicione ou utilize o gerador de senhas">
                                 </div>
@@ -55,13 +49,11 @@
                         </div>
                     </div>
 
-                    <div class="container">
-                        <div class="line">
-                            <div class="control is-horizontal">
-                                <div class="control-label">
-                                    <label class="label">Força da senha</label>
-                                </div>
+                    <div class="field is-horizontal">
+                        <div class="field-label">Força da senha</div>
 
+                        <div class="field-body">
+                            <div class="field">
                                 <div class="control">
                                     <strength :value="strength"></strength>
                                 </div>
@@ -69,17 +61,25 @@
                         </div>
                     </div>
 
-                    <password @generated="loadPassword" @checkedStrength="loadStrength"></password>
+                    <div class="field is-horizontal">
+                        <div class="field-label"></div>
+
+                        <div class="field-body">
+                            <div class="field">
+                                <div class="control">
+                                    <password @generated="loadPassword" @checkedStrength="loadStrength"></password>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </section>
 
                 <section class="content-body">
-                    <div class="container">
-                        <div class="line">
-                            <div class="control is-horizontal">
-                                <div class="control-label">
-                                    <label class="label">Equipamento</label>
-                                </div>
+                    <div class="field is-horizontal">
+                        <div class="field-label">Equipamento</div>
 
+                        <div class="field-body">
+                            <div class="field">
                                 <div class="control">
                                     <input type="text" class="input" v-model="form.type" placeholder="Selecione o tipo do equipamento">
                                 </div>
@@ -87,13 +87,11 @@
                         </div>
                     </div>
 
-                    <div class="container">
-                        <div class="line">
-                            <div class="control is-horizontal">
-                                <div class="control-label">
-                                    <label class="label">Descrição</label>
-                                </div>
+                    <div class="field is-horizontal">
+                        <div class="field-label">Descrição</div>
 
+                        <div class="field-body">
+                            <div class="field">
                                 <div class="control">
                                     <input type="text" class="input" v-model="form.description" placeholder="Opcional">
                                 </div>
@@ -103,7 +101,17 @@
                 </section>
 
                 <section class="content-footer">
-                    <button type="submit" class="button is-primary">Salvar</button>
+                    <div class="field is-horizontal">
+                        <div class="field-label"></div>
+
+                        <div class="field-body">
+                            <div class="field">
+                                <div class="control">
+                                    <button type="submit" class="button is-primary">Salvar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </section>
             </section>
         </form>
@@ -111,12 +119,11 @@
 </template>
 
 <script>
-    import Create from '../base/Create.vue';
     import Password from '../base/Password.vue';
     import Strength from '../base/Strength.vue';
 
     export default {
-        components: { Create, Password, Strength },
+        components: { Password, Strength },
 
         data() {
             return {
