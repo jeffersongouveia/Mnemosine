@@ -16,6 +16,10 @@ class Form {
         this.errors = new Errors();
     }
 
+    push(property, item) {
+        this.originalData[property] = item;
+        this[property] = item;
+    }
 
     /**
      * Fetch all relevant data for the form.
