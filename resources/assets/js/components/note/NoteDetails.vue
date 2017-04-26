@@ -1,13 +1,11 @@
 <template>
     <div>
         <section class="content-main">
-            <div class="container">
-                <div class="line">
-                    <label class="label">Nota</label>
-
-                    <textarea id="note" class="info textarea" :class="{'is-disabled': !enableInput}" cols="5" rows="100">{{ note.note }}</textarea>
+            <field label="Nota">
+                <div class="has-some-width">
+                    <textarea id="note" class="textarea" :class="{'is-disabled': !enableInput}" cols="5" rows="100">{{ note.note }}</textarea>
                 </div>
-            </div>
+            </field>
         </section>
 
         <section class="content-body">
@@ -17,12 +15,11 @@
 </template>
 
 <script>
+    import Field from '../base/Field.vue';
     import ItemLine from '../item/ItemLine.vue';
 
     export default {
-        components: {
-            'item-line': ItemLine
-        },
+        components: { Field, ItemLine },
 
         props: {
             note: {
@@ -58,5 +55,9 @@
 <style lang="css">
     .content-main .container .line .textarea {
         min-width: 0;
+    }
+
+    .has-some-width {
+        width: 90%;
     }
 </style>

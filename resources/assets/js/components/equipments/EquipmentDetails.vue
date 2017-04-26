@@ -8,7 +8,11 @@
                        :enable-input="enableInput">
             </item-line>
 
-            <password v-show="enableInput" @generated="reloadPassword" @checkedStrength="reloadStrength"></password>
+            <field>
+                <div class="is-not-widthfully">
+                    <password v-show="enableInput" @generated="reloadPassword" @checkedStrength="reloadStrength"></password>
+                </div>
+            </field>
         </section>
 
         <section class="content-body">
@@ -23,14 +27,12 @@
 <script>
     import PasswordGenerator from '../../utilities/PasswordGenerator';
 
+    import Field from '../base/Field.vue';
     import ItemLine from '../item/ItemLine.vue';
     import Password from '../base/Password.vue';
 
     export default {
-        components: {
-            'item-line': ItemLine,
-            'password': Password
-        },
+        components: { Field, ItemLine, Password },
 
         props: {
             equipment: {

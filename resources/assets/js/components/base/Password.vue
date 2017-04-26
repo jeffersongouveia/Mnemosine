@@ -1,57 +1,49 @@
 <template>
-    <div class="container">
-        <div class="line">
-            <div class="info">
-                <div class="half-width">
-                    <div class="box">
-                        <article class="media">
-                            <div class="media-content">
-                                <div class="content">
-                                    <div class="field">
-                                        <p class="control">
-                                            <label class="checkbox">
-                                                <input type="checkbox" v-model="uppercase">
-                                                A-Z
-                                            </label>
+    <div class="box">
+        <article class="media">
+            <div class="media-content">
+                <div class="content">
+                    <div class="field">
+                        <p class="control">
+                            <label class="checkbox">
+                                <input type="checkbox" v-model="uppercase">
+                                A-Z
+                            </label>
 
-                                            <label class="checkbox">
-                                                <input type="checkbox" v-model="lowercase">
-                                                a-z
-                                            </label>
-                                        </p>
+                            <label class="checkbox">
+                                <input type="checkbox" v-model="lowercase">
+                                a-z
+                            </label>
+                        </p>
 
-                                        <p class="control">
-                                            <label class="checkbox">
-                                                <input type="checkbox" v-model="numbers">
-                                                0-9
-                                            </label>
+                        <p class="control">
+                            <label class="checkbox">
+                                <input type="checkbox" v-model="numbers">
+                                0-9
+                            </label>
 
-                                            <label class="checkbox">
-                                                <input type="checkbox" v-model="symbols">
-                                                !$%@#
-                                            </label>
-                                        </p>
-                                    </div>
+                            <label class="checkbox">
+                                <input type="checkbox" v-model="symbols">
+                                !$%@#
+                            </label>
+                        </p>
+                    </div>
 
-                                    <!-- TODO: alinhar a linha do range e do label -->
-                                    <div class="field is-horizontal">
-                                        <p class="control">
-                                            <input type="range" min="4" max="30" v-model="length">
-                                            <label v-text="length"></label>
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <button type="button" @click="generate"
-                                        class="button is-success" :class="{ 'is-disabled': isAllOptionsDisabled }">
-                                    Gerar senha
-                                </button>
-                            </div>
-                        </article>
+                    <!-- TODO: alinhar a linha do range e do label -->
+                    <div class="field is-horizontal">
+                        <p class="control">
+                            <input type="range" min="4" max="30" v-model="length">
+                            <label v-text="length"></label>
+                        </p>
                     </div>
                 </div>
+
+                <button type="button" @click="generate"
+                        class="button is-success" :class="{ 'is-disabled': isAllOptionsDisabled }">
+                    Gerar senha
+                </button>
             </div>
-        </div>
+        </article>
     </div>
 </template>
 

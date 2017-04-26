@@ -1,14 +1,15 @@
 <template>
-    <div class="container">
-        <div class="line">
-            <label class="label" v-text="label"></label>
+    <div class="field is-horizontal">
+        <div class="field-label">
+            <label class="label">{{ label }}</label>
+        </div>
 
-            <div class="info">
-                <div class="half-width">
+        <div class="field-body">
+            <div class="field">
+                <div class="control is-not-widthfully">
                     <div v-if="enableInput && !isStrength">
                         <input class="input" type="text" :id="idItem" :value="value">
                     </div>
-
                     <div v-else>
                         <item-options v-if="!isInput" :value="value" :enable-copy="enableCopy"
                                       :is-password="isPassword" :is-strength="isStrength">
@@ -72,9 +73,3 @@
         }
     }
 </script>
-
-<style lang="css">
-    .half-width {
-        width: 50%;
-    }
-</style>

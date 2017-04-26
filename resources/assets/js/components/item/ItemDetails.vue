@@ -1,19 +1,27 @@
 <template>
 	<div class="item-details" v-if="item.id">
 		<section class="header">
-            <figure class="image is-32x32">
-                <img v-if="isEquipment()" src="/img/icons/mikrotik.png" alt="Ícone do Login">
-                <img v-else :src="item.icon" alt="Ícone do Login">
-            </figure>
-
-            <div class="control is-horizontal">
-                <div v-if="isEquipment()">
-                    <span v-if="!isEditable" class="title">{{ item.shortname }}</span>
-                    <input v-else id="shortname" :value="item.shortname" type="text" class="input">
+            <div class="field is-horizontal">
+                <div class="field-label">
+                    <figure class="image is-32x32">
+                        <img v-if="isEquipment()" src="/img/icons/mikrotik.png" alt="Ícone do Login">
+                        <img v-else :src="item.icon" alt="Ícone do Login">
+                    </figure>
                 </div>
-                <div v-else>
-                    <span v-if="!isEditable" class="title">{{ item.name }}</span>
-                    <input v-else id="name" :value="item.name" type="text" class="input">
+
+                <div class="field-body">
+                    <div class="field">
+                        <div class="control">
+                            <div v-if="isEquipment()">
+                                <span v-if="!isEditable" class="title">{{ item.shortname }}</span>
+                                <input v-else id="shortname" :value="item.shortname" type="text" class="input">
+                            </div>
+                            <div v-else>
+                                <span v-if="!isEditable" class="title">{{ item.name }}</span>
+                                <input v-else id="name" :value="item.name" type="text" class="input">
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -28,27 +36,14 @@
             </div>
 		</section>
 
-		<section class="content">
+		<section class="has-padding-left">
 			<login-details v-if="isLogin()" :login="item" :enable-input="isEditable"></login-details>
             <note-details v-else-if="isNote()" :note="item" :enable-input="isEditable"></note-details>
             <equipment-details v-else-if="isEquipment()" :equipment="item" :enable-input="isEditable"></equipment-details>
 
-			<section class="content-footer" v-show="!isEquipment()">
-                <div class="container">
-                    <div class="line">
-                        <label class="label">Última alteração</label>
-
-                        <span class="info">{{ item.updated_at }}</span>
-                    </div>
-                </div>
-
-                <div class="container">
-                    <div class="line">
-                        <label class="label">Criado em</label>
-
-                        <span class="info">{{ item.created_at }}</span>
-                    </div>
-                </div>
+			<section v-show="!isEquipment() && !isEditable">
+                <field label="Última alteração">{{ item.updated_at }}</field>
+                <field label="Criado em">{{ item.created_at }}</field>
 			</section>
 		</section>
 
@@ -86,6 +81,7 @@
 </template>
 
 <script>
+    import Field from '../base/Field.vue';
     import LoginDetails from '../login/LoginDetails.vue';
     import NoteDetails from '../note/NoteDetails.vue';
     import EquipmentDetails from '../equipments/EquipmentDetails.vue';
@@ -93,7 +89,7 @@
     import ModalConfirmation from '../base/ModalConfirmation.vue';
 
 	export default {
-		components: { LoginDetails, NoteDetails, EquipmentDetails, ModalConfirmation },
+		components: { Field, LoginDetails, NoteDetails, EquipmentDetails, ModalConfirmation },
 
 		props: {
 			item: {
@@ -243,6 +239,10 @@
 </script>
 
 <style>
+    .has-padding-left {
+        padding-left: 15%;
+    }
+
     .hold-on-right .icon:hover {
         cursor: pointer;
     }

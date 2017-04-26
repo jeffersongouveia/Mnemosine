@@ -33,11 +33,14 @@ body {
   bottom: 1em;
 }
 
+.is-not-widthfully {
+  width: 50%;
+}
+
 /*********************/
 
 .item-details {
   position: relative;
-  width: 100%;
   margin-top: 1.5em;
 }
 
@@ -57,25 +60,9 @@ body {
   width: 100%;
 }
 
-.item-details .line .label {
-  text-align: right;
-  width: 30%;
-}
-
 .item-details .line .info {
   text-align: left;
   width: 66%;
-}
-
-.item-details .header,
-.item-details .content {
-  padding-right: 1em;
-}
-
-.item-details .header .image,
-.item-details .label {
-  float: left;
-  margin-right: 1em;
 }
 
 .item-details .header .title,
@@ -151,7 +138,6 @@ body {
 
 .options {
   margin-left: .5em;
-  float: right;
 }
 
 .options .button {

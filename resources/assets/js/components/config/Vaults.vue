@@ -69,10 +69,3 @@
         }
     }
 </script>
-
-<style lang="css">
-    .item-details {
-        width: 80%;
-        margin-left: 5%;
-    }
-</style>

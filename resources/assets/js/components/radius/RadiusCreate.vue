@@ -10,7 +10,9 @@
             <section class="content">
                 <section class="content-main">
                     <div class="field is-horizontal">
-                        <div class="field-label">Usuário</div>
+                        <div class="field-label">
+                            <label class="label">Usuário</label>
+                        </div>
 
                         <div class="field-body">
                             <div class="field">
@@ -22,7 +24,9 @@
                     </div>
 
                     <div class="field is-horizontal">
-                        <div class="field-label">Senha</div>
+                        <div class="field-label">
+                            <label class="label">Senha</label>
+                        </div>
 
                         <div class="field-body">
                             <div class="field">
@@ -34,7 +38,9 @@
                     </div>
 
                     <div class="field is-horizontal">
-                        <div class="field-label">Força da senha</div>
+                        <div class="field-label">
+                            <label class="label">Força da senha</label>
+                        </div>
 
                         <div class="field-body">
                             <div class="field">
