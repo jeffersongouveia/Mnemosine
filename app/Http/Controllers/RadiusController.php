@@ -35,7 +35,6 @@ class RadiusController extends Controller
 
     public function destroy($id) {
 	    $radius = Radius::find($id);
-
 	    $radius->delete();
     }
 }
