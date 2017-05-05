@@ -35,12 +35,12 @@
 
             <div class="field-body">
                 <div class="field">
-                    <div class="control">
+                    <p class="control">
                         <label class="checkbox" v-for="vault in getVaults">
                             <input type="checkbox" name="vaults" v-model="models.vaults" :value="vault.id">
                             {{ vault.name }}
                         </label>
-                    </div>
+                    </p>
                 </div>
             </div>
         </div>

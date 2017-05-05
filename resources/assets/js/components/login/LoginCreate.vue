@@ -13,97 +13,42 @@
 
             <section class="content">
                 <section class="content-main">
-                    <div class="container">
-                        <div class="line">
-                            <div class="control is-horizontal">
-                                <div class="control-label">
-                                    <label class="label">Usuário</label>
-                                </div>
+                    <field label="Usuário">
+                        <input type="text" class="input" v-model="form.username" placeholder="Adicione o nome de usuário">
+                    </field>
 
-                                <div class="control">
-                                    <input type="text" class="input" v-model="form.username" placeholder="Adicione o nome de usuário">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <!-- TODO: adicionar na a checagem de força da senha ao digitar -->
+                    <field label="Senha">
+                        <input type="text" class="input" v-model="form.password" placeholder="Adicione ou utilize o gerador de senhas">
+                    </field>
 
-                    <div class="container">
-                        <div class="line">
-                            <div class="control is-horizontal">
-                                <div class="control-label">
-                                    <label class="label">Senha</label>
-                                </div>
-                                <!-- TODO: adicionar na a checagem de força da senha ao digitar -->
-                                <div class="control">
-                                    <input type="text" class="input" v-model="form.password" placeholder="Adicione ou utilize o gerador de senhas">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <field label="Força da senha">
+                        <strength :value="form.strength"></strength>
+                    </field>
 
-                    <div class="container">
-                        <div class="line">
-                            <div class="control is-horizontal">
-                                <div class="control-label">
-                                    <label class="label">Força da senha</label>
-                                </div>
-
-                                <div class="control">
-                                    <strength :value="form.strength"></strength>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <password @generated="loadPassword" @checkedStrength="loadStrength"></password>
+                    <field>
+                        <password @generated="loadPassword" @checkedStrength="loadStrength"></password>
+                    </field>
                 </section>
 
                 <section class="content-body">
-                    <div class="container">
-                        <div class="line">
-                            <div class="control is-horizontal">
-                                <div class="control-label">
-                                    <label class="label">IP</label>
-                                </div>
+                    <field label="IP">
+                        <input type="text" class="input" v-model="form.ip" placeholder="Adicione o IP do dispositivo/software">
+                    </field>
 
-                                <div class="control">
-                                    <input type="text" class="input" v-model="form.ip" placeholder="Adicione o IP do dispositivo/software">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <field label="DNS">
+                        <input type="text" class="input" v-model="form.dns" placeholder="Adicione o nome de domínio">
+                    </field>
 
-                    <div class="container">
-                        <div class="line">
-                            <div class="control is-horizontal">
-                                <div class="control-label">
-                                    <label class="label">DNS</label>
-                                </div>
-
-                                <div class="control">
-                                    <input type="text" class="input" v-model="form.dns" placeholder="Adicione o nome de domínio">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="container">
-                        <div class="line">
-                            <div class="control is-horizontal">
-                                <div class="control-label">
-                                    <label class="label">Equipamento</label>
-                                </div>
-
-                                <div class="control">
-                                    <input type="text" class="input" v-model="form.equipment" placeholder="Adicione o tipo de equipamento">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <field label="Equipamento">
+                        <input type="text" class="input" v-model="form.equipment" placeholder="Adicione o tipo de equipamento">
+                    </field>
                 </section>
 
                 <section class="content-footer">
-                    <button type="submit" class="button is-primary">Salvar</button>
+                    <field>
+                        <button type="submit" class="button is-primary">Salvar</button>
+                    </field>
                 </section>
             </section>
         </form>
@@ -111,13 +56,12 @@
 </template>
 
 <script>
-    import LoginInput from './LoginInput.vue';
-    import Create from '../base/Create.vue';
+    import Field from '../base/Field.vue';
     import Password from '../base/Password.vue';
     import Strength from '../base/Strength.vue';
 
     export default {
-        components: { LoginInput, Create, Password, Strength },
+        components: { Field, Password, Strength },
 
         data() {
             return {

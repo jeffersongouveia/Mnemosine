@@ -13,105 +13,41 @@
 
             <section class="content">
                 <section class="content-main">
-                    <div class="field is-horizontal">
-                        <div class="field-label">IP</div>
+                    <field label="IP">
+                        <input type="text" class="input" v-model="form.nasname" placeholder="Adicione o IP de acesso ao dispositivo">
+                    </field>
 
-                        <div class="field-body">
-                            <div class="field">
-                                <div class="control">
-                                    <input type="text" class="input" v-model="form.nasname" placeholder="Adicione o IP de acesso ao dispositivo">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <field label="Porta">
+                        <input type="text" class="input" v-model="form.ports" placeholder="Porta de acesso do RADIUS">
+                    </field>
 
-                    <div class="field is-horizontal">
-                        <div class="field-label">Porta</div>
+                    <field label="Senha">
+                        <input type="text" class="input" v-model="form.secret" placeholder="Senha do RADIUS">
+                    </field>
 
-                        <div class="field-body">
-                            <div class="field">
-                                <div class="control">
-                                    <input type="text" class="input" v-model="form.ports" placeholder="Porta de acesso do RADIUS">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <field label="Força da senha">
+                        <strength :value="strength"></strength>
+                    </field>
 
-                    <div class="field is-horizontal">
-                        <div class="field-label">Senha</div>
-
-                        <div class="field-body">
-                            <div class="field">
-                                <div class="control">
-                                    <input type="text" class="input" v-model="form.secret" placeholder="Adicione ou utilize o gerador de senhas">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="field is-horizontal">
-                        <div class="field-label">Força da senha</div>
-
-                        <div class="field-body">
-                            <div class="field">
-                                <div class="control">
-                                    <strength :value="strength"></strength>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="field is-horizontal">
-                        <div class="field-label"></div>
-
-                        <div class="field-body">
-                            <div class="field">
-                                <div class="control">
-                                    <password @generated="loadPassword" @checkedStrength="loadStrength"></password>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <field>
+                        <password @generated="loadPassword" @checkedStrength="loadStrength"></password>
+                    </field>
                 </section>
 
                 <section class="content-body">
-                    <div class="field is-horizontal">
-                        <div class="field-label">Equipamento</div>
+                    <field label="Equipamento">
+                        <input type="text" class="input" v-model="form.type" placeholder="Selecione o tipo do equipamento">
+                    </field>
 
-                        <div class="field-body">
-                            <div class="field">
-                                <div class="control">
-                                    <input type="text" class="input" v-model="form.type" placeholder="Selecione o tipo do equipamento">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="field is-horizontal">
-                        <div class="field-label">Descrição</div>
-
-                        <div class="field-body">
-                            <div class="field">
-                                <div class="control">
-                                    <input type="text" class="input" v-model="form.description" placeholder="Opcional">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <field label="Descrição">
+                        <input type="text" class="input" v-model="form.description" placeholder="Opcional">
+                    </field>
                 </section>
 
                 <section class="content-footer">
-                    <div class="field is-horizontal">
-                        <div class="field-label"></div>
-
-                        <div class="field-body">
-                            <div class="field">
-                                <div class="control">
-                                    <button type="submit" class="button is-primary">Salvar</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <field>
+                        <button type="submit" class="button is-primary">Salvar</button>
+                    </field>
                 </section>
             </section>
         </form>
@@ -119,18 +55,19 @@
 </template>
 
 <script>
+    import Field from '../base/Field.vue';
     import Password from '../base/Password.vue';
     import Strength from '../base/Strength.vue';
 
     export default {
-        components: { Password, Strength },
+        components: { Field, Password, Strength },
 
         data() {
             return {
                 form: new Form({
                     nasname: '',
                     shortname: '',
-                    type: '',
+                    type: 'Mikrotik',
                     ports: 1812,
                     secret: '',
                     description: '',

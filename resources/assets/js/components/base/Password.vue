@@ -14,9 +14,7 @@
                                 <input type="checkbox" v-model="lowercase">
                                 a-z
                             </label>
-                        </p>
 
-                        <p class="control">
                             <label class="checkbox">
                                 <input type="checkbox" v-model="numbers">
                                 0-9

@@ -7,31 +7,21 @@
                         <img :src="form.icon" alt="Ícone do item">
                     </figure>
 
-                    <input type="text" class="input" v-model="form.name" autofocus>
+                    <input type="text" class="input" v-model="form.name" placeholder="Título da nota" autofocus>
                 </div>
             </section>
 
             <section class="content">
                 <section class="content-main">
-                    <div class="container">
-                        <div class="line">
-                            <div class="control is-horizontal">
-                                <div class="control-label">
-                                    <label class="label">Nota</label>
-                                </div>
-
-                                <div class="control">
-                                    <textarea class="textarea" v-model="form.note"></textarea>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <field label="Nota">
+                        <textarea class="textarea" v-model="form.note" placeholder="Deixe aqui sua anotação :)"></textarea>
+                    </field>
                 </section>
 
-                <section class="content-body"></section>
-
                 <section class="content-footer">
-                    <button type="submit" class="button is-primary">Salvar</button>
+                    <field>
+                        <button type="submit" class="button is-primary">Salvar</button>
+                    </field>
                 </section>
             </section>
         </form>
@@ -39,7 +29,11 @@
 </template>
 
 <script>
+    import Field from '../base/Field.vue';
+
     export default {
+        components: { Field },
+
         data() {
             return {
                 form: new Form({

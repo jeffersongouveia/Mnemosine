@@ -7,7 +7,9 @@
         <div class="field-body">
             <div class="field">
                 <div class="control">
-                    <slot></slot>
+                    <div class="is-not-widthfully">
+                        <slot></slot>
+                    </div>
                 </div>
             </div>
         </div>

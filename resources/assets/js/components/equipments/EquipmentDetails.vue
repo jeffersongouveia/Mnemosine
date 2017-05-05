@@ -9,9 +9,7 @@
             </item-line>
 
             <field>
-                <div class="is-not-widthfully">
-                    <password v-show="enableInput" @generated="reloadPassword" @checkedStrength="reloadStrength"></password>
-                </div>
+                <password v-show="enableInput" @generated="reloadPassword" @checkedStrength="reloadStrength"></password>
             </field>
         </section>
 

@@ -15,11 +15,7 @@ class GroupsController extends Controller
     }
 
     public function store(Request $request) {
-        $group = new Group();
-
-        $group->name = $request->name;
-        $group->deleted = false;
-
+        $group = new Group($request->all());
         $group->save();
 
         $this->storeGroupVaults($request->vaults, $group->id);
