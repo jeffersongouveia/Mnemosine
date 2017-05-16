@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Radius extends Model
 {
-    protected $connection = 'mysql_radius';
+    protected $connection = 'pgsql_radius';
     protected $table = 'radcheck';
     protected $fillable = ['username', 'attribute', 'op', 'value'];
 

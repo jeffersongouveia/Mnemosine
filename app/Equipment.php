@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Equipment extends Model
 {
-    protected $connection = 'mysql_radius';
+    protected $connection = 'pgsql_radius';
     protected $table = 'nas';
     protected $fillable = ['nasname', 'shortname', 'type', 'ports', 'secret', 'description'];
 
