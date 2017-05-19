@@ -68,11 +68,11 @@ return [
 
         'pgsql' => [
             'driver' => 'pgsql',
-            'host' => env('DB_HOST'),
-            'port' => env('DB_PORT', '5765'),
-            'database' => env('DB_DATABASE'),
-            'username' => env('DB_USERNAME'),
-            'password' => env('DB_PASSWORD'),
+            'host' => env('DB_HOST_APP'),
+            'port' => env('DB_PORT'),
+            'database' => env('DB_DATABASE_APP'),
+            'username' => env('DB_USERNAME_APP'),
+            'password' => env('DB_PASSWORD_APP'),
             'charset' => 'utf8',
             'prefix' => '',
             'schema' => 'public',
@@ -81,17 +81,16 @@ return [
 
         'pgsql_radius' => [
             'driver' => 'pgsql',
-            'host' => env('DB_HOST'),
-            'port' => env('DB_PORT', '5765'),
-            'database' => env('DB_RADIUS_DATABASE'),
-            'username' => env('DB_USERNAME'),
-            'password' => env('DB_PASSWORD'),
+            'host' => env('DB_HOST_RADIUS'),
+            'port' => env('DB_PORT'),
+            'database' => env('DB_DATABASE_RADIUS'),
+            'username' => env('DB_USERNAME_RADIUS'),
+            'password' => env('DB_PASSWORD_RADIUS'),
             'charset' => 'utf8',
             'prefix' => '',
             'schema' => 'public',
             'sslmode' => 'prefer',
         ],
-
     ],
 
     /*
