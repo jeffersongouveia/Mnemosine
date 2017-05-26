@@ -1,76 +1,108 @@
-@extends('layouts.app')
+<div id="change-password" class="modal">
+    <form action="{{ url('/password/reset') }}" method="post">
+        <div class="modal-background"></div>
 
-@section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Reset Password</div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title">Mudança de senha</p>
+                <button type="button" class="delete" onclick="closeModal()"></button>
+            </header>
 
-                <div class="panel-body">
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
+            <section class="modal-card-body">
+                <div class="container">
+                    @if (session('error'))
+                        <div id="error" class="notification is-danger" onclick="closeFlash()">
+                            <button type="button" class="delete"></button>
+                            {{ session('error') }}
                         </div>
                     @endif
 
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/password/reset') }}">
-                        {{ csrf_field() }}
+                    {{ csrf_field() }}
 
-                        <input type="hidden" name="token" value="{{ $token }}">
+                    <input type="hidden" name="username" value="{{ Auth::user()->username }}">
 
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ $email or old('email') }}" required autofocus>
-
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
+                    <div class="field is-horizontal">
+                        <div class="field-label">
+                            <label class="label">Sua senha atual</label>
                         </div>
 
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
+                        <div class="field-body">
+                            <div class="field">
+                                <div class="control">
+                                    <input type="password" class="input" name="actual_password">
+                                </div>
                             </div>
                         </div>
+                    </div>
 
-                        <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
-                            <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
-
-                                @if ($errors->has('password_confirmation'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password_confirmation') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
+                    <div class="field is-horizontal">
+                        <div class="field-label">
+                            <label class="label">Sua nova senha</label>
                         </div>
 
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Reset Password
-                                </button>
+                        <div class="field-body">
+                            <div class="field">
+                                <div class="control">
+                                    <input type="password" class="input" name="new_password">
+
+                                    @if ($errors->has('new_password'))
+                                        <p class="help is-danger">
+                                            {{ $errors->first('new_password') }}
+                                        </p>
+                                    @endif
+                                </div>
                             </div>
                         </div>
-                    </form>
+                    </div>
+
+                    <div class="field is-horizontal">
+                        <div class="field-label">
+                            <label class="label">Repita sua nova senha</label>
+                        </div>
+
+                        <div class="field-body">
+                            <div class="field">
+                                <div class="control">
+                                    <input type="password" class="input" name="new_password_confirmation">
+
+                                    @if ($errors->has('password_confirmation'))
+                                        <p class="help is-danger">
+                                            {{ $errors->first('password_confirmation') }}
+                                        </p>
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
+            </section>
+
+            <footer class="modal-card-foot">
+                <button type="submit" class="button is-success">Salvar</button>
+                <button type="button" class="button" onclick="closeModal()">Cancelar</button>
+            </footer>
         </div>
-    </div>
+    </form>
 </div>
-@endsection
+
+<script>
+    function closeFlash() {
+        document.getElementById('error').remove();
+    }
+
+    function closeModal() {
+        let modal = document.getElementById('change-password');
+        modal.classList.remove('is-active');
+    }
+
+    function showModal() {
+        let modal = document.getElementById('change-password');
+        modal.classList.add('is-active');
+    }
+
+    let flash = document.getElementById('error');
+    let helper = document.querySelector('.help');
+    if(flash || helper) {
+        showModal();
+    }
+</script>

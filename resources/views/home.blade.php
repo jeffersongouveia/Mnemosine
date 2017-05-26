@@ -1,22 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <nav class="nav has-shadow">
-        <div class="nav-left">
-            <a class="nav-item">
-                <img src="img/mnemosine.png" class="image" alt="Mnemosine logo">
-            </a>
-        </div>
-
-        <div class="nav-right nav-menu">
-            <div class="nav-item">
-                <form action="{{ route('logout') }}" method="post">
-                    {{ csrf_field() }}
-                    <button type="submit" class="button is-light">Logout</button>
-                </form>
-            </div>
-        </div>
-    </nav>
+    @include('menu')
 
     <div id="side-menu" class="columns">
         <div class="column is-2 show-grid">
