@@ -23,6 +23,7 @@
             <div class="item-details">
                 <vaults v-show="canIShow(1)"></vaults>
                 <radius v-show="canIShow(3)"></radius>
+                <users v-show="canIShow(4)"></users>
             </div>
         </div>
     </columns>
@@ -33,9 +34,10 @@
 
     import Vaults from './Vaults.vue';
     import Radius from './Radius.vue';
+    import Users from './Users.vue';
 
     export default {
-        components: { Columns, Vaults, Radius },
+        components: { Columns, Vaults, Radius, Users },
 
         data() {
             return {
