@@ -72,7 +72,7 @@ class ResetPasswordController extends Controller
     {
         return [
             'actual_password' => 'required',
-            'new_password' => 'required|confirmed|min:1'
+            'new_password' => 'required|confirmed|min:8'
         ];
     }
 

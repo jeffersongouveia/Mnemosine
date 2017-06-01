@@ -1,5 +1,5 @@
 <div id="change-password" class="modal">
-    <form action="{{ url('/password/reset') }}" method="post">
+    <form action="@{{ url('/password/reset') }}" method="post">
         <div class="modal-background"></div>
 
         <div class="modal-card">
@@ -13,13 +13,13 @@
                     @if (session('error'))
                         <div id="error" class="notification is-danger" onclick="closeFlash()">
                             <button type="button" class="delete"></button>
-                            {{ session('error') }}
+                            @{{ session('error') }}
                         </div>
                     @endif
 
-                    {{ csrf_field() }}
+                    @{{ csrf_field() }}
 
-                    <input type="hidden" name="username" value="{{ Auth::user()->username }}">
+                    <input type="hidden" name="username" value="@{{ Auth::user()->username }}">
 
                     <div class="field is-horizontal">
                         <div class="field-label">
@@ -47,7 +47,7 @@
 
                                     @if ($errors->has('new_password'))
                                         <p class="help is-danger">
-                                            {{ $errors->first('new_password') }}
+                                            @{{ $errors->first('new_password') }}
                                         </p>
                                     @endif
                                 </div>
@@ -67,7 +67,7 @@
 
                                     @if ($errors->has('password_confirmation'))
                                         <p class="help is-danger">
-                                            {{ $errors->first('password_confirmation') }}
+                                            @{{ $errors->first('password_confirmation') }}
                                         </p>
                                     @endif
                                 </div>
