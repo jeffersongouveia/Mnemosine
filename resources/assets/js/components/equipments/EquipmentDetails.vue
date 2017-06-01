@@ -27,7 +27,7 @@
 
     import Field from '../base/Field.vue';
     import ItemLine from '../item/ItemLine.vue';
-    import Password from '../base/Password.vue';
+    import Password from '../base/PasswordGenerator.vue';
 
     export default {
         components: { Field, ItemLine, Password },

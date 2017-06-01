@@ -69,7 +69,7 @@ return [
         'pgsql' => [
             'driver' => 'pgsql',
             'host' => env('DB_HOST_APP'),
-            'port' => env('DB_PORT'),
+            'port' => env('DB_PORT_APP'),
             'database' => env('DB_DATABASE_APP'),
             'username' => env('DB_USERNAME_APP'),
             'password' => env('DB_PASSWORD_APP'),
@@ -82,7 +82,7 @@ return [
         'pgsql_radius' => [
             'driver' => 'pgsql',
             'host' => env('DB_HOST_RADIUS'),
-            'port' => env('DB_PORT'),
+            'port' => env('DB_PORT_RADIUS'),
             'database' => env('DB_DATABASE_RADIUS'),
             'username' => env('DB_USERNAME_RADIUS'),
             'password' => env('DB_PASSWORD_RADIUS'),

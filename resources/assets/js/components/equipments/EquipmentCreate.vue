@@ -21,17 +21,7 @@
                         <input type="text" class="input" v-model="form.ports" placeholder="Porta de acesso do RADIUS">
                     </field>
 
-                    <field label="Senha">
-                        <input type="text" class="input" v-model="form.secret" placeholder="Senha do RADIUS">
-                    </field>
-
-                    <field label="Força da senha">
-                        <strength :value="strength"></strength>
-                    </field>
-
-                    <field>
-                        <password @generated="loadPassword" @checkedStrength="loadStrength"></password>
-                    </field>
+                    <password @generated="loadData"></password>
                 </section>
 
                 <section class="content-body">
@@ -57,10 +47,9 @@
 <script>
     import Field from '../base/Field.vue';
     import Password from '../base/Password.vue';
-    import Strength from '../base/Strength.vue';
 
     export default {
-        components: { Field, Password, Strength },
+        components: { Field, Password },
 
         data() {
             return {
@@ -71,19 +60,13 @@
                     ports: 1812,
                     secret: '',
                     description: '',
-                }),
-
-                strength: 0
+                })
             }
         },
 
         methods: {
-            loadPassword(generatedPassword) {
-                this.form.secret = generatedPassword;
-            },
-
-            loadStrength(strength) {
-                this.strength = strength;
+            loadData(password, strength) {
+                this.form.secret = password;
             },
 
             onSubmit() {

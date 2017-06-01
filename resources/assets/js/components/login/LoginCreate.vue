@@ -17,18 +17,7 @@
                         <input type="text" class="input" v-model="form.username" placeholder="Adicione o nome de usuário">
                     </field>
 
-                    <!-- TODO: adicionar na a checagem de força da senha ao digitar -->
-                    <field label="Senha">
-                        <input type="text" class="input" v-model="form.password" placeholder="Adicione ou utilize o gerador de senhas">
-                    </field>
-
-                    <field label="Força da senha">
-                        <strength :value="form.strength"></strength>
-                    </field>
-
-                    <field>
-                        <password @generated="loadPassword" @checkedStrength="loadStrength"></password>
-                    </field>
+                    <password @generated="loadData"></password>
                 </section>
 
                 <section class="content-body">
@@ -58,10 +47,9 @@
 <script>
     import Field from '../base/Field.vue';
     import Password from '../base/Password.vue';
-    import Strength from '../base/Strength.vue';
 
     export default {
-        components: { Field, Password, Strength },
+        components: { Field, Password },
 
         data() {
             return {
@@ -92,11 +80,8 @@
         },
 
         methods: {
-            loadPassword(generatedPassword) {
-                this.form.password = generatedPassword;
-            },
-
-            loadStrength(strength) {
+            loadData(password, strength) {
+                this.form.password = password;
                 this.form.strength = strength;
             },
 

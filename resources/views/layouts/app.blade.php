@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/app.css">
     <link rel="stylesheet" href="fonts/css/font-awesome.min.css">
 
-    <title>{{ config('app.name') }}</title>
+    <title>@{{ config('app.name') }}</title>
 </head>
 
 <body>

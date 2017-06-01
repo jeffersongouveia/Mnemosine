@@ -11,8 +11,8 @@
                         <div class="column"></div>
 
                         <div class="column is-3">
-                            <form method="post" action="{{ route('login') }}">
-                                {{ csrf_field() }}
+                            <form method="post" action="@{{ route('login') }}">
+                                @{{ csrf_field() }}
 
                                 <div class="field">
                                     <p class="control has-icon">
@@ -25,7 +25,7 @@
 
                                     @if($errors->has('username'))
                                         <p class="help is-danger">
-                                            {{ $errors->first('username') }}
+                                            @{{ $errors->first('username') }}
                                         </p>
                                     @endif
                                 </div>
@@ -41,7 +41,7 @@
 
                                     @if($errors->has('password'))
                                         <p class="help is-danger">
-                                            {{ $errors->first('password') }}
+                                            @{{ $errors->first('password') }}
                                         </p>
                                     @endif
                                 </div>

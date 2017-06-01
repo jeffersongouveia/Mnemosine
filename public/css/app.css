@@ -6728,6 +6728,49 @@ body {
 }
 
 /*********************/
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown a,
+.dropdown i {
+  color: inherit;
+  cursor: pointer;
+  padding: .1em;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+}
+
+.dropdown-content a {
+  display: block;
+}
+
+.dropdown-content a:hover {
+  color: #00d1b2;
+  background-color: whitesmoke;
+}
+
+.show {
+  display: block;
+}
+
+.dropup {
+  bottom: 100%;
+}
+
+.option-hr {
+  margin-top: .4em;
+  margin-bottom: .4em;
+  border-bottom: 1px solid #000;
+  pointer-events: none;
+  cursor: default;
+}
+
+/*********************/
 #app {
   height: 102%;
 }

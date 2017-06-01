@@ -10,16 +10,16 @@
             <div class="content has-text-centered">
                 <span class="dropdown">
                     <span id="user-menu" onclick="showMenu()">
-                        <button class="button is-light">{{ Auth::user()->username }}</button>
+                        <button class="button is-light">@{{ Auth::user()->username }}</button>
                     </span>
 
-                    <div id="user-menu-options" class="has-text-left dropdown-content" style="right: 1px;">
+                    <div id="user-menu-options" class="has-text-left dropdown-content" style="right: 1px; width: 300%;">
                         <div class="box">
-                            <button class="button is-light" onclick="showModal()">Mudar minha senha</button>
+                            <a onclick="showModal()">Mudar minha senha</a>
 
-                            <form action="{{ route('logout') }}" method="post">
-                                {{ csrf_field() }}
-                                <button type="submit" class="button is-light">Logout</button>
+                            <form id="form" action="@{{ route('logout') }}" method="post">
+                                @{{ csrf_field() }}
+                                <a onclick="submit()">Logout</a>
                             </form>
                         </div>
                     </div>
@@ -28,7 +28,7 @@
         </div>
     </div>
 
-    {{-- Aqui está o modal #change-password --}}
+    @{{--Aqui está o modal #change-password --}}
     @include('auth.passwords.reset')
 </nav>
 
@@ -45,5 +45,10 @@
     function showModal() {
         const modal = document.getElementById('change-password');
         modal.classList.add('is-active');
+    }
+
+    function submit() {
+        let form = document.getElementById('form');
+        form.submit();
     }
 </script>

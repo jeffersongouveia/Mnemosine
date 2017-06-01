@@ -49,7 +49,7 @@
 
         <section class="edit-options" :class="{ 'show-edit-options': isEditable }">
             <div class="is-pulled-left">
-                <a class="button is-danger" @click="toogleModal">
+                <a class="button is-danger" @click="toggleModal">
                     <span class="icon is-small">
                         <i class="fa fa-trash"></i>
                     </span>
@@ -74,7 +74,7 @@
             </div>
         </section>
 
-        <modal-confirmation :show="isToShow" @hideModal="toogleModal" @confirm="moveToTrash">
+        <modal-confirmation :show="isToShow" @hideModal="toggleModal" @confirm="moveToTrash">
             Tem certeza que deseja mover pra lixeira o item <span class="alert-text">{{ getName }}</span>?
         </modal-confirmation>
 	</div>
@@ -155,7 +155,7 @@
                 this.isEditable = !this.isEditable;
             },
 
-            toogleModal() {
+            toggleModal() {
                 this.isToShow = !this.isToShow;
             },
 
@@ -227,7 +227,7 @@
 
                 this.form.delete(this.getUrl + this.item.id).then(response => {
                     //fecha o modal
-                    this.toogleModal();
+                    this.toggleModal();
                     //desliga o modo de edição
                     this.toogleEditable();
                     //emite o aviso de remoção

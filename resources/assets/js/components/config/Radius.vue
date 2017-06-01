@@ -38,9 +38,9 @@
             </button>
         </div>
 
-        <radius-edit :show="isToShow" :radius="data" @hideModal="toogleModal" @updated="reloadData"></radius-edit>
+        <radius-edit :show="isToShow" :radius="data" @hideModal="toggleModal" @updated="reloadData"></radius-edit>
 
-        <modal-confirmation :show="isToShowConfirmation" @hideModal="toogleModalConfirmation" @confirm="moveToTrash(data)">
+        <modal-confirmation :show="isToShowConfirmation" @hideModal="toggleModalConfirmation" @confirm="moveToTrash(data)">
             Tem certeza que deseja remover o usuário <span class="alert-text">{{ data.username }}</span>?
         </modal-confirmation>
     </config-layout>
@@ -81,11 +81,11 @@
                 this.$router.push('/radius/create');
             },
 
-            toogleModal() {
+            toggleModal() {
                 this.isToShow = !this.isToShow;
             },
 
-            toogleModalConfirmation() {
+            toggleModalConfirmation() {
                 this.isToShowConfirmation = !this.isToShowConfirmation;
             },
 
@@ -94,7 +94,7 @@
                 this.data.username = radius.username;
                 this.data.value = radius.value;
 
-                this.toogleModal();
+                this.toggleModal();
             },
 
             reloadData(data) {
@@ -109,7 +109,7 @@
             showConfirmation(radius) {
                 this.data = radius;
 
-                this.toogleModalConfirmation();
+                this.toggleModalConfirmation();
             },
 
             moveToTrash(radius) {
@@ -117,9 +117,8 @@
                     id: radius.id
                 });
 
-                form.delete('/api/radius/' + radius.id).then(() => {
-                    this.toogleModalConfirmation();
-
+                form.delete('/api/radius/' + form.id).then(() => {
+                    this.toggleModalConfirmation();
                     this.radius.remove(radius);
                 });
             }

@@ -10,37 +10,11 @@
 
             <section class="modal-card-body">
                 <form method="post">
-                    <div class="container">
-                        <div class="line">
-                            <label class="label">Usuário</label>
+                    <field label="Usuário">
+                      <input type="text" class="input" v-model="form.username">
+                    </field>
 
-                            <div class="info">
-                                <input type="text" class="input" v-model="form.username">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="container">
-                        <div class="line">
-                            <label class="label">Senha</label>
-
-                            <div class="info">
-                                <input type="text" class="input" v-model="form.value">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="container">
-                        <div class="line">
-                            <label class="label">Força da Senha</label>
-
-                            <div class="info">
-                                <strength :value="strength"></strength>
-                            </div>
-                        </div>
-                    </div>
-
-                    <password @generated="loadPassword" @checkedStrength="loadStrength"></password>
+                    <password @generated="loadData" :password="form.value"></password>
                 </form>
             </section>
 
@@ -55,9 +29,10 @@
 <script>
     import Password from '../base/Password.vue';
     import Strength from '../base/Strength.vue';
+    import Field from '../base/Field.vue';
 
     export default {
-        components: { Password, Strength },
+        components: { Password, Strength, Field },
 
         props: {
             show: {
@@ -101,11 +76,8 @@
                 });
             },
 
-            loadPassword(password) {
+            loadData(password, strength) {
                 this.form.value = password;
-            },
-
-            loadStrength(strength) {
                 this.strength = strength;
             },
 
