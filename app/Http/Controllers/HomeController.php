@@ -3,6 +3,8 @@
 namespace Mnemosine\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Mnemosine\Group;
 
 class HomeController extends Controller
 {
@@ -23,6 +25,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $group = Group::find(Auth::user()->id);
+
+        return view('home', ['group' => $group]);
     }
 }

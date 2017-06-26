@@ -10,6 +10,7 @@
             <div class="content has-text-centered">
                 <span class="dropdown">
                     <span id="user-menu" onclick="showMenu()">
+                        <input id="user-group" type="hidden" value="@{{ $group }}">
                         <button class="button is-light">@{{ Auth::user()->username }}</button>
                     </span>
 

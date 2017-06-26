@@ -26,6 +26,7 @@
             </div>
 
             <div class="hold-on-right">
+                <!-- TODO: adicionar na tabela do radius a coluna 'favorite' -->
                 <span class="icon is-medium" @click="toogleFavorite">
                     <i id="favorite" class="fa" :class="[ item.favorite ? 'fa-star' : 'fa-star-o' ]"></i>
                 </span>

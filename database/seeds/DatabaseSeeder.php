@@ -11,9 +11,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(UsersTableSeeder::class);
         $this->call(VaultsTableSeeder::class);
         $this->call(GroupsTableSeeder::class);
+        $this->call(UsersTableSeeder::class);
 
         // TODO: remover as linhas do factory antes de passar pra production
 //        factory(Mnemosine\Vault::class, 3)->create();

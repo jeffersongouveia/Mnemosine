@@ -29,7 +29,7 @@ elixir((mix) => {
 
     mix.browserSync({
         proxy: 'localhost:8000',
-        browser: 'google chrome',
+        browser: 'safari',
         open: false
     })
 });

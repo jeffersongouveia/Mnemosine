@@ -11,11 +11,19 @@ class GroupsTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('groups')->insert([
-            'name' => 'Administradores',
-            'deleted' => false,
-            'created_at' => date('Y-m-d H:i:s'),
-            'updated_at' => date('Y-m-d H:i:s')
-        ]);
+        $names = ['Administrador', 'Escrita', 'Leitura'];
+        $deleted = false;
+        $created_at = date('Y-m-d H:i:s');
+        $updated_at = date('Y-m-d H:i:s');
+
+        foreach($names as $id => $name) {
+            DB::table('groups')->insert([
+                'id' => $id + 1,
+                'name' => $name,
+                'deleted' => $deleted,
+                'created_at' => $created_at,
+                'updated_at' => $updated_at
+            ]);
+        }
     }
 }

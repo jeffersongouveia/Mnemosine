@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="css/app.css">
     <link rel="stylesheet" href="fonts/css/font-awesome.min.css">
 
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="mask-icon" href="favicon.svg" color="black">
     <title>@{{ config('app.name') }}</title>
 </head>
 
