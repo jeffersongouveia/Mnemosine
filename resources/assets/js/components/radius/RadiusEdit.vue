@@ -14,7 +14,7 @@
                       <input type="text" class="input" v-model="form.username">
                     </field>
 
-                    <password @generated="loadData" :password="form.value"></password>
+                    <password @generated="loadData" password=""></password>
                 </form>
             </section>
 

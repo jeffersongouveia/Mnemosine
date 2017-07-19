@@ -1,7 +1,7 @@
 <nav class="nav has-shadow">
     <div class="nav-left">
         <a class="nav-item">
-            <img src="img/mnemosine.png" class="image" alt="Mnemosine logo">
+            <img src="favicon.ico" class="image" alt="Logo da Rede Completa">
         </a>
     </div>
 

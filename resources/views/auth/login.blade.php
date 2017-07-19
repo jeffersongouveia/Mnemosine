@@ -4,7 +4,9 @@
     <section class="hero is-default is-fullheight">
         <div class="hero-body">
             <div class="container">
-                <h1 class="title has-text-centered">Mnemosine</h1>
+                <figure class="image is-logo-center">
+                    <img src="logo.jpg">
+                </figure>
 
                 <div class="container">
                     <div class="columns">
