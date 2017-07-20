@@ -87,6 +87,8 @@
 
                 isToShow: false,
                 isToShowConfirmation: false,
+
+                interval: null,
                 isToShowLog: false,
                 log: 'Desculpe, não tenho nada para exibir no momento :('
             }
@@ -115,9 +117,17 @@
                 this.isToShowLog = !this.isToShowLog;
 
                 if(this.isToShowLog) {
-                    this.log = this.radius.log;
-                    console.log(this.radius.log);
+                    this.loadRadiusLog();
+                } else {
+                    clearInterval(this.interval);
                 }
+            },
+
+            loadRadiusLog() {
+                this.interval = setInterval(function() {
+                    this.radius.getLog();
+                    this.log = this.radius.log;
+                }.bind(this), 1000);
             },
 
             openEdit(radius) {
@@ -139,7 +149,6 @@
 
             showConfirmation(radius) {
                 this.data = radius;
-
                 this.toggleModalConfirmation();
             },
 
