@@ -51,13 +51,13 @@
         <div class="modal" :class="{ 'is-active': isToShowLog }">
             <div class="modal-background" @click="toggleLog"></div>
 
-            <div class="modal-card">
+            <div class="modal-card" style="width: 80%;">
                 <header class="modal-card-head">
                     <p class="modal-card-title">Log do FreeRADIUS</p>
                     <button class="delete" @click="toggleLog"></button>
                 </header>
 
-                <section class="modal-card-body" v-text="log"></section>
+                <section class="modal-card-body" style="white-space: pre-wrap;" v-text="log"></section>
 
                 <footer class="modal-card-foot">
                 </footer>

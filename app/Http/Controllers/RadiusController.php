@@ -39,6 +39,7 @@ class RadiusController extends Controller
     }
 
     public function getLog() {
-	    return exec('tail -f /var/log/freeradius/radius.log');
+	    exec('tail /var/log/freeradius/radius.log > /var/log/freeradius/tail_radius.log');
+        return file_get_contents('/var/log/freeradius/tail_radius.log');
     }
 }
