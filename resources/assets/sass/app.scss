@@ -98,7 +98,8 @@ body {
 }
 
 .scrollable {
-  overflow-y: auto;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
   height: 100%;
 }
 

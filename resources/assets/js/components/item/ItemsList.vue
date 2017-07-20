@@ -158,5 +158,7 @@
 <style lang="css">
     #list-items {
         height: 82%;
+        position: absolute;
+        width: 20%;
     }
 </style>
