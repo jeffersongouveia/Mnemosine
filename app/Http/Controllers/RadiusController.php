@@ -37,4 +37,8 @@ class RadiusController extends Controller
 	    $radius = Radius::find($id);
 	    $radius->delete();
     }
+
+    public function getLog() {
+	    return exec('tail -f /var/log/freeradius/radius.log');
+    }
 }

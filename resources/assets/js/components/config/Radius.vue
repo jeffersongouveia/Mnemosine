@@ -36,6 +36,10 @@
             <button class="button is-primary" @click="redirectToRadiusCreate">
                 Adicionar usuário RADIUS
             </button>
+
+            <button class="button" @click="toggleLog">
+                Log do FreeRADIUS
+            </button>
         </div>
 
         <radius-edit :show="isToShow" :radius="data" @hideModal="toggleModal" @updated="reloadData"></radius-edit>
@@ -43,6 +47,22 @@
         <modal-confirmation :show="isToShowConfirmation" @hideModal="toggleModalConfirmation" @confirm="moveToTrash(data)">
             Tem certeza que deseja remover o usuário <span class="alert-text">{{ data.username }}</span>?
         </modal-confirmation>
+
+        <div class="modal" :class="{ 'is-active': isToShowLog }">
+            <div class="modal-background" @click="toggleLog"></div>
+
+            <div class="modal-card">
+                <header class="modal-card-head">
+                    <p class="modal-card-title">Log do FreeRADIUS</p>
+                    <button class="delete" @click="toggleLog"></button>
+                </header>
+
+                <section class="modal-card-body" v-text="log"></section>
+
+                <footer class="modal-card-foot">
+                </footer>
+            </div>
+        </div>
     </config-layout>
 </template>
 
@@ -66,7 +86,9 @@
                 },
 
                 isToShow: false,
-                isToShowConfirmation: false
+                isToShowConfirmation: false,
+                isToShowLog: false,
+                log: 'Desculpe, não tenho nada para exibir no momento :('
             }
         },
 
@@ -87,6 +109,15 @@
 
             toggleModalConfirmation() {
                 this.isToShowConfirmation = !this.isToShowConfirmation;
+            },
+
+            toggleLog() {
+                this.isToShowLog = !this.isToShowLog;
+
+                if(this.isToShowLog) {
+                    this.log = this.radius.log;
+                    console.log(this.radius.log);
+                }
             },
 
             openEdit(radius) {
@@ -126,6 +157,10 @@
 
         created() {
             this.radius.get();
+        },
+
+        updated() {
+            this.radius.getLog();
         }
     }
 </script>

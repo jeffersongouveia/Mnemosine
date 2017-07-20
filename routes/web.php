@@ -27,6 +27,7 @@ Route::resource('/api/equipments', 'EquipmentsController');
 Route::resource('/api/logins', 'LoginsController');
 Route::resource('/api/notes', 'NotesController');
 
+Route::get('/api/radius/log', 'RadiusController@getLog')->name('radius.log');
 Route::resource('/api/radius', 'RadiusController');
 Route::resource('/api/users', 'UsersController');
 Route::resource('/api/groups', 'GroupsController');

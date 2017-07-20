@@ -76,7 +76,8 @@
                     }
                 ],
 
-                selected: 0
+                // pra pagina vir com o RADIUS selecionado por default
+                selected: 3
             }
         },
 
