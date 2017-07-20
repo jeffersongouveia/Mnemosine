@@ -36,7 +36,9 @@
             <button class="button is-primary" @click="redirectToRadiusCreate">
                 Adicionar usuário RADIUS
             </button>
+        </div>
 
+        <div class="hold-on-bottom" style="right: 0;">
             <button class="button" @click="toggleLog">
                 Log do FreeRADIUS
             </button>
